@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroceryStore", "GroceryStor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroceryStore.Tests", "..\GroceryStore.Tests\GroceryStore.Tests.csproj", "{78774E3E-0B45-4397-9145-84667330D860}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroceryStore.Console", "..\GroceryStore.Console\GroceryStore.Console.csproj", "{DB326A47-9940-474F-9130-CEF9C7E9B055}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroceryStore.ConsoleApplication", "..\GroceryStore.ConsoleApplication\GroceryStore.ConsoleApplication.csproj", "{DB326A47-9940-474F-9130-CEF9C7E9B055}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

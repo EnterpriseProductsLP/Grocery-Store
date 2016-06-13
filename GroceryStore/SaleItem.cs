@@ -2,25 +2,21 @@
 {
     public class SaleItem
     {
-        private readonly Item _item;
-
-        private int _quantity;
-
         public SaleItem(Item item)
         {
-            _item = item;
+            Item = item;
             AddOne();
         }
 
-        public int Quantity => _quantity;
+        public Item Item { get; }
 
-        public decimal Subtotal => Quantity * _item.Price;
+        public int Quantity { get; private set; }
 
-        public Item Item => _item;
+        public decimal Subtotal => Quantity * Item.Price;
 
         public void AddOne()
         {
-            _quantity += 1;
+            Quantity += 1;
         }
     }
 }

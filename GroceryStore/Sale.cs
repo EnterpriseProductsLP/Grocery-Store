@@ -12,9 +12,9 @@ namespace GroceryStore
             Items = new List<SaleItem>();
         }
 
-        public decimal Total => Items.Sum(item => item.Subtotal);
-
         public IList<SaleItem> Items { get; }
+
+        public decimal Total => Items.Sum(item => item.Subtotal);
 
         public void AddItem(string sku)
         {
@@ -26,7 +26,9 @@ namespace GroceryStore
             }
             else
             {
-                Items.Add(new SaleItem(ItemBuilder.BuildItem(sku)));
+                var item = ItemBuilder.BuildItem(sku);
+                var saleItem = new SaleItem(item);
+                Items.Add(saleItem);
             }
         }
     }

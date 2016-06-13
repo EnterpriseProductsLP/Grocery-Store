@@ -32,5 +32,18 @@ namespace GroceryStore.Tests
             saleItem.Quantity.Should().Be(1);
             saleItem.Subtotal.Should().Be(1M);
         }
+
+        [Test]
+        public void SubtotalReturnsQuantityTimesPrice()
+        {
+            var item = new Item("sku", "name", 1M);
+            var saleItem = new SaleItem(item);
+            saleItem.AddOne();
+
+            saleItem.Should().NotBeNull();
+            saleItem.Item.Should().Be(item);
+            saleItem.Quantity.Should().Be(2);
+            saleItem.Subtotal.Should().Be(2M);
+        }
     }
 }

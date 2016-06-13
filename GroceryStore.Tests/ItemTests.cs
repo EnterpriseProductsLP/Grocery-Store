@@ -20,19 +20,6 @@ namespace GroceryStore.Tests
         }
 
         [Test]
-        public void DefaultConstructorReturnsAnInstance()
-        {
-            Item item = null;
-            Action action = () => item = new Item();
-
-            action.ShouldNotThrow();
-            item.Should().NotBeNull();
-            item.Price.Should().Be(0M);
-            item.Name.Should().Be(string.Empty);
-            item.Sku.Should().Be(string.Empty);
-        }
-
-        [Test]
         public void ParameterizedConstructorReturnsAnInstanceWithCorrectValues()
         {
             const string ExpectedName = "name";

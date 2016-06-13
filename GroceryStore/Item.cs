@@ -2,47 +2,17 @@
 {
     public class Item
     {
-        private string _name;
-
-        private decimal _price;
-
-        private string _sku;
-
-        public Item()
-        {
-            _name = string.Empty;
-            _sku = string.Empty;
-        }
-
         public Item(string sku, string name, decimal price)
         {
-            _sku = sku;
-            _name = name;
-            _price = price;
+            Sku = sku;
+            Name = name;
+            Price = price;
         }
 
-        public string Name
-        {
-            get
-            {
-                return _name;
-            }
-        }
+        public string Name { get; }
 
-        public decimal Price
-        {
-            get
-            {
-                return _price;
-            }
-        }
+        public decimal Price { get; }
 
-        public string Sku
-        {
-            get
-            {
-                return _sku;
-            }
-        }
+        public string Sku { get; }
     }
 }

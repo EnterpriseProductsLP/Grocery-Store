@@ -7,8 +7,8 @@
     <ProjectGuid>{DB326A47-9940-474F-9130-CEF9C7E9B055}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GroceryStore.Console</RootNamespace>
-    <AssemblyName>GroceryStore.Console</AssemblyName>
+    <RootNamespace>GroceryStore.ConsoleApplication</RootNamespace>
+    <AssemblyName>GroceryStore.ConsoleApplication</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

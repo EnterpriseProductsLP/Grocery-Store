@@ -7,13 +7,21 @@ namespace GroceryStore.Tests
     [TestFixture]
     public class ItemBuilderTests
     {
+        [OneTimeSetUp]
+        public void OneTimeSetUp()
+        {
+        }
+
+        [SetUp]
+        public void SetUp()
+        {
+        }
+
         [Test]
         public void CanGetItemForBananas()
         {
-            // Act
             var item = ItemBuilder.BuildItem(ItemData.Bananas.Sku);
 
-            // Assert
             item.Name.Should().Be(ItemData.Bananas.Name);
             item.Price.Should().Be(ItemData.Bananas.Price);
             item.Sku.Should().Be(ItemData.Bananas.Sku);
@@ -22,10 +30,8 @@ namespace GroceryStore.Tests
         [Test]
         public void CanGetItemForPeptoBismol()
         {
-            // Act
             var item = ItemBuilder.BuildItem(ItemData.PeptoBismol.Sku);
 
-            // Assert
             item.Name.Should().Be(ItemData.PeptoBismol.Name);
             item.Price.Should().Be(ItemData.PeptoBismol.Price);
             item.Sku.Should().Be(ItemData.PeptoBismol.Sku);
@@ -34,10 +40,8 @@ namespace GroceryStore.Tests
         [Test]
         public void CanGetItemForRubberBands()
         {
-            // Act
             var item = ItemBuilder.BuildItem(ItemData.RubberBands.Sku);
 
-            // Assert
             item.Name.Should().Be(ItemData.RubberBands.Name);
             item.Price.Should().Be(ItemData.RubberBands.Price);
             item.Sku.Should().Be(ItemData.RubberBands.Sku);
