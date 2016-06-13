@@ -7,7 +7,7 @@ using NUnit.Framework;
 namespace GroceryStore.Tests
 {
     [TestFixture]
-    public class SaleItemTests
+    public class LineItemTests
     {
         [OneTimeSetUp]
         public void OneTimeSetUp()
@@ -22,28 +22,28 @@ namespace GroceryStore.Tests
         [Test]
         public void ParameterizedConstructorReturnsAnInstanceWithCorrectValues()
         {
-            SaleItem saleItem = null;
+            LineItems lineItems = null;
             var item = new Item("sku", "name", 1M);
-            Action action = () => saleItem = new SaleItem(item);
+            Action action = () => lineItems = new LineItems(item);
 
             action.ShouldNotThrow();
-            saleItem.Should().NotBeNull();
-            saleItem.Item.Should().Be(item);
-            saleItem.Quantity.Should().Be(1);
-            saleItem.Subtotal.Should().Be(1M);
+            lineItems.Should().NotBeNull();
+            lineItems.Item.Should().Be(item);
+            lineItems.Quantity.Should().Be(1);
+            lineItems.Subtotal.Should().Be(1M);
         }
 
         [Test]
         public void SubtotalReturnsQuantityTimesPrice()
         {
             var item = new Item("sku", "name", 1M);
-            var saleItem = new SaleItem(item);
-            saleItem.AddOne();
+            var lineItem = new LineItems(item);
+            lineItem.AddOne();
 
-            saleItem.Should().NotBeNull();
-            saleItem.Item.Should().Be(item);
-            saleItem.Quantity.Should().Be(2);
-            saleItem.Subtotal.Should().Be(2M);
+            lineItem.Should().NotBeNull();
+            lineItem.Item.Should().Be(item);
+            lineItem.Quantity.Should().Be(2);
+            lineItem.Subtotal.Should().Be(2M);
         }
     }
 }

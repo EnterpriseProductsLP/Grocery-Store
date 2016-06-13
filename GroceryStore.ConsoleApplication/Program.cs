@@ -84,19 +84,19 @@ namespace GroceryStore.ConsoleApplication
                 Console.WriteLine();
             }
 
-            if (_sale.Items.Count <= 0)
+            if (_sale.LineItems.Count <= 0)
             {
                 return;
             }
 
             Console.WriteLine($"{"SKU", -8}{"Product", -16}{"Qty", -4}{"Subtotal", -8}");
             Console.WriteLine("------- --------------- --- --------");
-            foreach (var saleItem in _sale.Items)
+            foreach (var lineItem in _sale.LineItems)
             {
-                var itemSku = $"{saleItem.Item.Sku, -8}";
-                var itemName = $"{saleItem.Item.Name, -16}";
-                var itemQuantity = $"{saleItem.Quantity, -4}";
-                var itemSubtotal = $"{saleItem.Subtotal.ToString("C"), -8}";
+                var itemSku = $"{lineItem.Item.Sku, -8}";
+                var itemName = $"{lineItem.Item.Name, -16}";
+                var itemQuantity = $"{lineItem.Quantity, -4}";
+                var itemSubtotal = $"{lineItem.Subtotal.ToString("C"), -8}";
                 Console.WriteLine(itemSku + itemName + itemQuantity + itemSubtotal);
             }
 

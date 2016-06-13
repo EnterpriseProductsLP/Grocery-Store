@@ -43,8 +43,11 @@
     <Compile Include="Item.cs" />
     <Compile Include="ItemBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SaleItem.cs" />
+    <Compile Include="LineItems.cs" />
     <Compile Include="Sale.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GroceryStore.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

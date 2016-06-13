@@ -1,24 +1,22 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-using GroceryStore.Tests;
-
 namespace GroceryStore
 {
     public class Sale
     {
         public Sale()
         {
-            Items = new List<SaleItem>();
+            LineItems = new List<LineItems>();
         }
 
-        public IList<SaleItem> Items { get; }
+        public IList<LineItems> LineItems { get; }
 
-        public decimal Total => Items.Sum(item => item.Subtotal);
+        public decimal Total => LineItems.Sum(item => item.Subtotal);
 
         public void AddItem(string sku)
         {
-            var existingItem = Items.SingleOrDefault(saleItem => saleItem.Item.Sku == sku);
+            var existingItem = LineItems.SingleOrDefault(lineItem => lineItem.Item.Sku == sku);
 
             if (existingItem != null)
             {
@@ -27,8 +25,8 @@ namespace GroceryStore
             else
             {
                 var item = ItemBuilder.BuildItem(sku);
-                var saleItem = new SaleItem(item);
-                Items.Add(saleItem);
+                var lineItem = new LineItems(item);
+                LineItems.Add(lineItem);
             }
         }
     }

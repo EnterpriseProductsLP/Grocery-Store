@@ -3,11 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroceryStore", "GroceryStore.csproj", "{A69FE982-EBC8-4CC8-A54E-E89A15E14F24}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroceryStore", "GroceryStore\GroceryStore.csproj", "{A69FE982-EBC8-4CC8-A54E-E89A15E14F24}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroceryStore.Tests", "..\GroceryStore.Tests\GroceryStore.Tests.csproj", "{78774E3E-0B45-4397-9145-84667330D860}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroceryStore.Tests", "GroceryStore.Tests\GroceryStore.Tests.csproj", "{78774E3E-0B45-4397-9145-84667330D860}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroceryStore.ConsoleApplication", "..\GroceryStore.ConsoleApplication\GroceryStore.ConsoleApplication.csproj", "{DB326A47-9940-474F-9130-CEF9C7E9B055}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroceryStore.ConsoleApplication", "GroceryStore.ConsoleApplication\GroceryStore.ConsoleApplication.csproj", "{DB326A47-9940-474F-9130-CEF9C7E9B055}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{34FF6E29-B48A-4F18-A325-A4C0D398EA4D}"
+	ProjectSection(SolutionItems) = preProject
+		Documentation\My Grocery Store.docx = Documentation\My Grocery Store.docx
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{EB20AC6E-7743-4A11-912D-BC22DA2BFC23}"
+	ProjectSection(SolutionItems) = preProject
+		Resources\Code39r.ttf = Resources\Code39r.ttf
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

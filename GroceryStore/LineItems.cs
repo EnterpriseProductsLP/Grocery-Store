@@ -1,8 +1,8 @@
-﻿namespace GroceryStore.Tests
+﻿namespace GroceryStore
 {
-    public class SaleItem
+    public class LineItems
     {
-        public SaleItem(Item item)
+        public LineItems(Item item)
         {
             Item = item;
             AddOne();

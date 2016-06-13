@@ -84,7 +84,7 @@
     <Compile Include="ItemData.cs" />
     <Compile Include="ItemTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SaleItemTests.cs" />
+    <Compile Include="LineItemTests.cs" />
     <Compile Include="SaleTests.cs" />
   </ItemGroup>
   <ItemGroup>
