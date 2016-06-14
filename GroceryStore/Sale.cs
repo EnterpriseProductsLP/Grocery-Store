@@ -7,10 +7,10 @@ namespace GroceryStore
     {
         public Sale()
         {
-            LineItems = new List<LineItems>();
+            LineItems = new List<LineItem>();
         }
 
-        public IList<LineItems> LineItems { get; }
+        public IList<LineItem> LineItems { get; }
 
         public decimal Total => LineItems.Sum(item => item.Subtotal);
 
@@ -25,7 +25,7 @@ namespace GroceryStore
             else
             {
                 var item = ItemBuilder.BuildItem(sku);
-                var lineItem = new LineItems(item);
+                var lineItem = new LineItem(item);
                 LineItems.Add(lineItem);
             }
         }

@@ -1,8 +1,8 @@
 ﻿namespace GroceryStore
 {
-    public class LineItems
+    public class LineItem
     {
-        public LineItems(Item item)
+        public LineItem(Item item)
         {
             Item = item;
             AddOne();
