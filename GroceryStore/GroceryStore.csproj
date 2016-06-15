@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BuyTwoGetOneFreeDeal.cs" />
+    <Compile Include="DealProvider.cs" />
     <Compile Include="IProvideDeals.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="ItemBuilder.cs" />

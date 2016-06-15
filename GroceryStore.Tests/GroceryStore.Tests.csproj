@@ -80,6 +80,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DealProviderTests.cs" />
     <Compile Include="ItemBuilderTests.cs" />
     <Compile Include="ItemData.cs" />
     <Compile Include="ItemTests.cs" />
@@ -88,6 +89,7 @@
     <Compile Include="Extensions\PropertyInfoExtensions.cs" />
     <Compile Include="SaleTests.cs" />
     <Compile Include="BuyTwoGetOneFreeDealTests.cs" />
+    <Compile Include="TestDeal.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GroceryStore\GroceryStore.csproj">

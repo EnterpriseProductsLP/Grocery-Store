@@ -15,10 +15,10 @@
                 workingQuantity -= 1;
             }
 
-            return ApplyDiscount(quantity, price);
+            return this.ApplyDeal(quantity, price);
         }
 
-        private decimal ApplyDiscount(uint quantity, decimal price)
+        private decimal ApplyDeal(uint quantity, decimal price)
         {
             return quantity / 3 * price;
         }
