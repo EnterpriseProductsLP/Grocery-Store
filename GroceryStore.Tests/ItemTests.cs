@@ -1,4 +1,6 @@
-﻿using FluentAssertions;
+﻿using System;
+
+using FluentAssertions;
 
 using NUnit.Framework;
 
@@ -30,5 +32,26 @@ namespace GroceryStore.Tests
             item.Price.Should().Be(ExpectedPrice);
             item.Sku.Should().Be(ExpectedSku);
         }
+
+        [Test]
+        public void PriceCannotBeNegative()
+        {
+            Item item = null;
+            Action action = () => item = new Item("sku", "name", -1M);
+
+            action.ShouldThrow<ArgumentException>();
+            item.Should().BeNull();
+        }
+
+        [Test]
+        public void PriceCannotBeZero()
+        {
+            Item item = null;
+            Action action = () => item = new Item("sku", "name", 0M);
+
+            action.ShouldThrow<ArgumentException>();
+            item.Should().BeNull();
+        }
+
     }
 }

@@ -71,8 +71,8 @@ namespace GroceryStore.Tests
             var bananas = _sale.LineItems.Single(lineItem => lineItem.Item.Sku == ItemData.Bananas.Sku);
             var peptoBismol = _sale.LineItems.Single(lineItem => lineItem.Item.Sku == ItemData.PeptoBismol.Sku);
             var rubberBands = _sale.LineItems.Single(lineItem => lineItem.Item.Sku == ItemData.RubberBands.Sku);
-            var expectedTotal = (2 * ItemData.Bananas.Price) + (2 * ItemData.PeptoBismol.Price)
-                                + (2 * ItemData.RubberBands.Price);
+            var expectedTotal = 2 * ItemData.Bananas.Price + 2 * ItemData.PeptoBismol.Price
+                                + 2 * ItemData.RubberBands.Price;
 
             _sale.LineItems.Count.Should().Be(3);
             _sale.Total.Should().Be(expectedTotal);

@@ -85,7 +85,9 @@
     <Compile Include="ItemTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="LineItemTests.cs" />
+    <Compile Include="Extensions\PropertyInfoExtensions.cs" />
     <Compile Include="SaleTests.cs" />
+    <Compile Include="BuyTwoGetOneFreeDealTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GroceryStore\GroceryStore.csproj">
