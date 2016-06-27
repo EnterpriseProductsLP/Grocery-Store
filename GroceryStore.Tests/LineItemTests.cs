@@ -22,22 +22,22 @@ namespace GroceryStore.Tests
         [Test]
         public void ParameterizedConstructorReturnsAnInstanceWithCorrectValues()
         {
-            LineItems lineItems = null;
+            LineItem lineItem = null;
             var item = new Item("sku", "name", 1M);
-            Action action = () => lineItems = new LineItems(item);
+            Action action = () => lineItem = new LineItem(item);
 
             action.ShouldNotThrow();
-            lineItems.Should().NotBeNull();
-            lineItems.Item.Should().Be(item);
-            lineItems.Quantity.Should().Be(1);
-            lineItems.Subtotal.Should().Be(1M);
+            lineItem.Should().NotBeNull();
+            lineItem.Item.Should().Be(item);
+            lineItem.Quantity.Should().Be(1);
+            lineItem.Subtotal.Should().Be(1M);
         }
 
         [Test]
         public void SubtotalReturnsQuantityTimesPrice()
         {
             var item = new Item("sku", "name", 1M);
-            var lineItem = new LineItems(item);
+            var lineItem = new LineItem(item);
             lineItem.AddOne();
 
             lineItem.Should().NotBeNull();
