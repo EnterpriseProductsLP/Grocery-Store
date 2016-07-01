@@ -16,7 +16,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentat
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{EB20AC6E-7743-4A11-912D-BC22DA2BFC23}"
 	ProjectSection(SolutionItems) = preProject
-		Resources\Code39r.ttf = Resources\Code39r.ttf
+		Resources\free3of9.ttf = Resources\free3of9.ttf
 	EndProjectSection
 EndProject
 Global
