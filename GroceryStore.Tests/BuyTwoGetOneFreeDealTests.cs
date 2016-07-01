@@ -25,7 +25,7 @@ namespace GroceryStore.Tests
         [Test]
         public void GetDiscountReturnsZeroWhenQuantityLessThanThree()
         {
-            var buyTwoGetOneFreeDeal = new BuyTwoGetOneFreeDeal();
+            var buyTwoGetOneFreeDeal = new BuySomeGetOneFreeDeal(2);
 
             Parallel.For(
                 0,
@@ -43,7 +43,7 @@ namespace GroceryStore.Tests
         [Test]
         public void GetDiscountReturnsQuantityDividedByThreeTimesPriceWhenQuantityIsDivisibleByThree()
         {
-            var buyTwoGetOneFreeDeal = new BuyTwoGetOneFreeDeal();
+            var buyTwoGetOneFreeDeal = new BuySomeGetOneFreeDeal(2);
 
             // We're only testing numbers divisible by three
             var quantities = Enumerable.Range(0, 1000).Where(i => i % 3 == 0).ToList();
@@ -66,7 +66,7 @@ namespace GroceryStore.Tests
         public void BuyTwoGetOneFreeDealWithOddQuantityOfMoreThanTwoReturnsNextValueUnderQuantityDivisibleByThreeMinusOneDividedByTwoTimesPrice()
         {
             // Applying a buy 2 get 1 free deal when quantity is > 3 and quantity is not divisible by three returns ((quantity – 1) / 3) * price
-            var buyTwoGetOneFreeDeal = new BuyTwoGetOneFreeDeal();
+            var buyTwoGetOneFreeDeal = new BuySomeGetOneFreeDeal(2);
 
             // We're only testing numbers not divisible by three
             var quantities = Enumerable.Range(0, 1000).Where(i => i % 3 != 0).ToList();

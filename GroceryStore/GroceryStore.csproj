@@ -40,7 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BuyTwoGetOneFreeDeal.cs" />
+    <Compile Include="BuySomeGetOneFreeDeal.cs" />
     <Compile Include="DealProvider.cs" />
     <Compile Include="IProvideDeals.cs" />
     <Compile Include="Item.cs" />

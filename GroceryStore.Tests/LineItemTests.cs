@@ -75,7 +75,7 @@ namespace GroceryStore.Tests
                             substituteDeal.GetDiscount(quantity, item.Price).Returns(0);
 
                             var lineItemStub = new LineItem(item, substituteDeal);
-                            var lineItemUnderTest = new LineItem(item, new BuyTwoGetOneFreeDeal());
+                            var lineItemUnderTest = new LineItem(item, new BuySomeGetOneFreeDeal(2));
 
                             lineItemStub.SetQuantity(quantity);
                             lineItemUnderTest.SetQuantity(quantity);
@@ -112,7 +112,7 @@ namespace GroceryStore.Tests
                             substituteDeal.GetDiscount(quantity, item.Price).Returns(substituteDealDiscount);
 
                             var lineItemStub = new LineItem(item, substituteDeal);
-                            var lineItemUnderTest = new LineItem(item, new BuyTwoGetOneFreeDeal());
+                            var lineItemUnderTest = new LineItem(item, new BuySomeGetOneFreeDeal(2));
 
                             lineItemStub.SetQuantity(quantity);
                             lineItemUnderTest.SetQuantity(quantity);
@@ -155,7 +155,7 @@ namespace GroceryStore.Tests
                             substituteDeal.GetDiscount(quantity, item.Price).Returns(substituteDealDiscount);
 
                             var lineItemStub = new LineItem(item, substituteDeal);
-                            var lineItemUnderTest = new LineItem(item, new BuyTwoGetOneFreeDeal());
+                            var lineItemUnderTest = new LineItem(item, new BuySomeGetOneFreeDeal(2));
 
                             lineItemStub.SetQuantity(quantity);
                             lineItemUnderTest.SetQuantity(quantity);

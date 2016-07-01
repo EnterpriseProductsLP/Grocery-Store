@@ -25,8 +25,8 @@ namespace GroceryStore.Tests
         [Test]
         public void AddDealDoesNotThrowIfCalledTwiceForTheSameSku()
         {
-            DealProvider.AddDeal(Sku, new BuyTwoGetOneFreeDeal());
-            Action action = () => DealProvider.AddDeal(Sku, new BuyTwoGetOneFreeDeal());
+            DealProvider.AddDeal(Sku, new BuySomeGetOneFreeDeal(2));
+            Action action = () => DealProvider.AddDeal(Sku, new BuySomeGetOneFreeDeal(2));
             action.ShouldNotThrow();
         }
 
@@ -34,7 +34,7 @@ namespace GroceryStore.Tests
         public void AddDealShouldReplaceAnyExistingDealForTheGivenSku()
         {
             
-            DealProvider.AddDeal(Sku, new BuyTwoGetOneFreeDeal());
+            DealProvider.AddDeal(Sku, new BuySomeGetOneFreeDeal(2));
             DealProvider.AddDeal(Sku, new TestDeal());
             var actualDeal = DealProvider.GetDeal(Sku);
             actualDeal.Should().BeOfType<TestDeal>();
@@ -43,9 +43,9 @@ namespace GroceryStore.Tests
         [Test]
         public void GetDealReturnsAddedDealForTheGivenSku()
         {
-            DealProvider.AddDeal(Sku, new BuyTwoGetOneFreeDeal());
+            DealProvider.AddDeal(Sku, new BuySomeGetOneFreeDeal(2));
             var actualDeal = DealProvider.GetDeal(Sku);
-            actualDeal.Should().BeOfType<BuyTwoGetOneFreeDeal>();
+            actualDeal.Should().BeOfType<BuySomeGetOneFreeDeal>();
         }
 
         [Test]
@@ -65,9 +65,9 @@ namespace GroceryStore.Tests
         [Test]
         public void RemoveDealShouldRemoveTheDealForTheGivenSku()
         {
-            DealProvider.AddDeal(Sku, new BuyTwoGetOneFreeDeal());
+            DealProvider.AddDeal(Sku, new BuySomeGetOneFreeDeal(2));
             var currentDeal = DealProvider.GetDeal(Sku);
-            currentDeal.Should().BeOfType<BuyTwoGetOneFreeDeal>();
+            currentDeal.Should().BeOfType<BuySomeGetOneFreeDeal>();
 
             DealProvider.RemoveDeal(Sku);
             currentDeal = DealProvider.GetDeal(Sku);
