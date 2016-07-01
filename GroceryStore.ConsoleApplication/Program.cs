@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace GroceryStore.ConsoleApplication
 {
@@ -59,6 +60,25 @@ namespace GroceryStore.ConsoleApplication
         {
             var sku = string.Empty;
 
+            SetupLoop();
+
+            SalesLoop(sku);
+        }
+
+        private static void SetupLoop()
+        {
+            Console.Write("Add a Discount [Y/N]?:  ");
+            var input = Console.ReadLine();
+            var inputIsValid = new List<string> { "y", "Y", "n", "N" }.Contains(input);
+
+            if (inputIsValid)
+            {
+                
+            }
+        }
+
+        private static void SalesLoop(string sku)
+        {
             while (!_quit)
             {
                 Console.Clear();

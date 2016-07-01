@@ -1,22 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace GroceryStore
 {
     public static class DealProvider
     {
-        private static readonly Dictionary<string, Type> Deals;
+        private static readonly Dictionary<string, IProvideDeals> Deals;
 
         static DealProvider()
         {
-            Deals = new Dictionary<string, Type>();
+            Deals = new Dictionary<string, IProvideDeals>();
         }
 
-        public static void AddDeal<T>(string sku) where T : IProvideDeals, new()
+        public static void AddDeal(string sku, IProvideDeals dealProvider)
         {
             RemoveDealIfOneExists(sku);
 
-            Deals.Add(sku, typeof(T));
+            Deals.Add(sku, dealProvider);
         }
 
         public static void ClearDeals()
@@ -26,16 +25,8 @@ namespace GroceryStore
 
         public static IProvideDeals GetDeal(string sku)
         {
-            Type type;
-            if (!Deals.TryGetValue(sku, out type))
-            {
-                return null;
-            }
-
-            var assemblyName = type.Assembly.GetName().Name;
-            var typeName = type.FullName;
-            var instanceHandle = Activator.CreateInstance(assemblyName, typeName);
-            return (IProvideDeals)instanceHandle.Unwrap();
+            IProvideDeals dealProvider;
+            return Deals.TryGetValue(sku, out dealProvider) ? dealProvider : null;
         }
 
         public static void RemoveDeal(string sku)
