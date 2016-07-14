@@ -68,11 +68,19 @@ namespace GroceryStore.Tests
             _sale.AddItem(ItemData.RubberBands.Sku);
             _sale.AddItem(ItemData.RubberBands.Sku);
 
+<<<<<<< HEAD
+            var bananas = _sale.LineItems.Single(lineItem => lineItem.Item.Sku == ItemData.Bananas.Sku);
+            var peptoBismol = _sale.LineItems.Single(lineItem => lineItem.Item.Sku == ItemData.PeptoBismol.Sku);
+            var rubberBands = _sale.LineItems.Single(lineItem => lineItem.Item.Sku == ItemData.RubberBands.Sku);
+            var expectedTotal = 2 * ItemData.Bananas.Price + 2 * ItemData.PeptoBismol.Price
+                                + 2 * ItemData.RubberBands.Price;
+=======
             var bananas = _sale.LineItems.Single(lineItem => lineItem.Sku == ItemData.Bananas.Sku);
             var peptoBismol = _sale.LineItems.Single(lineItem => lineItem.Sku == ItemData.PeptoBismol.Sku);
             var rubberBands = _sale.LineItems.Single(lineItem => lineItem.Sku == ItemData.RubberBands.Sku);
             var expectedTotal = (2 * ItemData.Bananas.Price) + (2 * ItemData.PeptoBismol.Price)
                                 + (2 * ItemData.RubberBands.Price);
+>>>>>>> develop
 
             _sale.LineItems.Count.Should().Be(3);
             _sale.Total.Should().Be(expectedTotal);
