@@ -16,7 +16,7 @@ namespace GroceryStore
 
         public void AddItem(string sku)
         {
-            var existingItem = LineItems.SingleOrDefault(lineItem => lineItem.Item.Sku == sku);
+            var existingItem = LineItems.SingleOrDefault(lineItem => lineItem.Sku == sku);
 
             if (existingItem != null)
             {
