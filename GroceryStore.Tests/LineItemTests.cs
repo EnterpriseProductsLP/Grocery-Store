@@ -28,7 +28,9 @@ namespace GroceryStore.Tests
 
             action.ShouldNotThrow();
             lineItem.Should().NotBeNull();
-            lineItem.Item.Should().Be(item);
+            lineItem.Name.Should().Be(item.Name);
+            lineItem.Price.Should().Be(item.Price);
+            lineItem.Sku.Should().Be(item.Sku);
             lineItem.Quantity.Should().Be(1);
             lineItem.Subtotal.Should().Be(1M);
         }
@@ -41,7 +43,6 @@ namespace GroceryStore.Tests
             lineItem.AddOne();
 
             lineItem.Should().NotBeNull();
-            lineItem.Item.Should().Be(item);
             lineItem.Quantity.Should().Be(2);
             lineItem.Subtotal.Should().Be(2M);
         }

@@ -43,9 +43,9 @@ namespace GroceryStore.Tests
             _sale.AddItem(ItemData.PeptoBismol.Sku);
             _sale.AddItem(ItemData.RubberBands.Sku);
 
-            var bananas = _sale.LineItems.Single(lineItem => lineItem.Item.Sku == ItemData.Bananas.Sku);
-            var peptoBismol = _sale.LineItems.Single(lineItem => lineItem.Item.Sku == ItemData.PeptoBismol.Sku);
-            var rubberBands = _sale.LineItems.Single(lineItem => lineItem.Item.Sku == ItemData.RubberBands.Sku);
+            var bananas = _sale.LineItems.Single(lineItem => lineItem.Sku == ItemData.Bananas.Sku);
+            var peptoBismol = _sale.LineItems.Single(lineItem => lineItem.Sku == ItemData.PeptoBismol.Sku);
+            var rubberBands = _sale.LineItems.Single(lineItem => lineItem.Sku == ItemData.RubberBands.Sku);
             var expectedTotal = ItemData.Bananas.Price + ItemData.PeptoBismol.Price + ItemData.RubberBands.Price;
 
             _sale.LineItems.Count.Should().Be(3);
@@ -68,9 +68,9 @@ namespace GroceryStore.Tests
             _sale.AddItem(ItemData.RubberBands.Sku);
             _sale.AddItem(ItemData.RubberBands.Sku);
 
-            var bananas = _sale.LineItems.Single(lineItem => lineItem.Item.Sku == ItemData.Bananas.Sku);
-            var peptoBismol = _sale.LineItems.Single(lineItem => lineItem.Item.Sku == ItemData.PeptoBismol.Sku);
-            var rubberBands = _sale.LineItems.Single(lineItem => lineItem.Item.Sku == ItemData.RubberBands.Sku);
+            var bananas = _sale.LineItems.Single(lineItem => lineItem.Sku == ItemData.Bananas.Sku);
+            var peptoBismol = _sale.LineItems.Single(lineItem => lineItem.Sku == ItemData.PeptoBismol.Sku);
+            var rubberBands = _sale.LineItems.Single(lineItem => lineItem.Sku == ItemData.RubberBands.Sku);
             var expectedTotal = (2 * ItemData.Bananas.Price) + (2 * ItemData.PeptoBismol.Price)
                                 + (2 * ItemData.RubberBands.Price);
 
