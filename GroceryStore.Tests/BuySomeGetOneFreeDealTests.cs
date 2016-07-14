@@ -8,7 +8,7 @@ using NUnit.Framework;
 namespace GroceryStore.Tests
 {
     [TestFixture]
-    public class BuyTwoGetOneFreeDealTests
+    public class BuySomeGetOneFreeDealTests
     {
         private readonly decimal[] _prices = { 1.25M, 10M, 4.88M };
 

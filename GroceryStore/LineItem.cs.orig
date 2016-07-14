@@ -17,11 +17,19 @@
 
         public decimal RawTotal => Quantity * Item.Price;
 
-        public string Sku => Item.Sku;
         public decimal Subtotal => RawTotal - Discount;
-        public string Name => Item.Name;
+
+<<<<<<< HEAD
         public decimal Discount => _dealProvider?.GetDiscount(Quantity, Item.Price) ?? 0;
+=======
+        public decimal Subtotal => Quantity*Item.Price;
+
+        public string Sku => Item.Sku;
+
+        public string Name => Item.Name;
+
         public decimal Price => Item.Price;
+>>>>>>> develop
 
         public void AddOne()
         {
