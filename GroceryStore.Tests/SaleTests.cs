@@ -20,6 +20,7 @@ namespace GroceryStore.Tests
         [SetUp]
         public void SetUp()
         {
+            DealProvider.ClearDeals();
             _sale = new Sale();
         }
 
@@ -54,6 +55,20 @@ namespace GroceryStore.Tests
             bananas.Subtotal.Should().Be(ItemData.Bananas.Price);
             peptoBismol.Subtotal.Should().Be(ItemData.PeptoBismol.Price);
             rubberBands.Subtotal.Should().Be(ItemData.RubberBands.Price);
+        }
+
+        [Test]
+        public void SaleWithThreeBananasAndBuyTwoGetOneFreeDealAppliedHasTheCorrectPrice()
+        {
+            DealProvider.AddDeal(ItemData.Bananas.Sku, new BuySomeGetOneFreeDeal(2));
+            _sale.AddItem(ItemData.Bananas.Sku);
+            _sale.AddItem(ItemData.Bananas.Sku);
+            _sale.AddItem(ItemData.Bananas.Sku);
+
+            var bananas = _sale.LineItems.Single(lineItem => lineItem.Sku == ItemData.Bananas.Sku);
+            bananas.Quantity.Should().Be(3);
+
+            _sale.Total.Should().Be(2 * ItemData.Bananas.Price);
         }
 
         [Test]

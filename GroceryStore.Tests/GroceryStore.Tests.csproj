@@ -88,7 +88,7 @@
     <Compile Include="LineItemTests.cs" />
     <Compile Include="Extensions\PropertyInfoExtensions.cs" />
     <Compile Include="SaleTests.cs" />
-    <Compile Include="BuyTwoGetOneFreeDealTests.cs" />
+    <Compile Include="BuySomeGetOneFreeDealTests.cs" />
     <Compile Include="TestDeal.cs" />
   </ItemGroup>
   <ItemGroup>
