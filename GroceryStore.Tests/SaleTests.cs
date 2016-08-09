@@ -26,60 +26,60 @@ namespace GroceryStore.Tests
         [Test]
         public void CallingAddItemResultsInTheItemWithTheAppropriateSkuBeingAddedToTheSale()
         {
-            Action action = () => _sale.AddItem(ItemData.Bananas.Sku);
+            Action action = () => _sale.AddItem("1245");
             action.ShouldNotThrow();
             _sale.LineItems.Count.Should().Be(1);
 
             var lineItem = _sale.LineItems.Single();
             lineItem.Quantity.Should().Be(1);
-            lineItem.Subtotal.Should().Be(ItemData.Bananas.Price);
-            _sale.Total.Should().Be(ItemData.Bananas.Price);
+            lineItem.Subtotal.Should().Be(1.25M);
+            _sale.Total.Should().Be(1.25M);
         }
 
         [Test]
         public void SaleWithOneOfEachItemHasTheCorrectPrice()
         {
-            _sale.AddItem(ItemData.Bananas.Sku);
-            _sale.AddItem(ItemData.PeptoBismol.Sku);
-            _sale.AddItem(ItemData.RubberBands.Sku);
+            _sale.AddItem("1245");
+            _sale.AddItem("99999");
+            _sale.AddItem("839");
 
-            var bananas = _sale.LineItems.Single(lineItem => lineItem.Sku == ItemData.Bananas.Sku);
-            var peptoBismol = _sale.LineItems.Single(lineItem => lineItem.Sku == ItemData.PeptoBismol.Sku);
-            var rubberBands = _sale.LineItems.Single(lineItem => lineItem.Sku == ItemData.RubberBands.Sku);
-            var expectedTotal = ItemData.Bananas.Price + ItemData.PeptoBismol.Price + ItemData.RubberBands.Price;
+            var bananas = _sale.LineItems.Single(lineItem => lineItem.Sku == "1245");
+            var peptoBismol = _sale.LineItems.Single(lineItem => lineItem.Sku == "99999");
+            var rubberBands = _sale.LineItems.Single(lineItem => lineItem.Sku == "839");
+            var expectedTotal = 1.25M + 4.88M + 10M;
 
             _sale.LineItems.Count.Should().Be(3);
             _sale.Total.Should().Be(expectedTotal);
 
-            bananas.Subtotal.Should().Be(ItemData.Bananas.Price);
-            peptoBismol.Subtotal.Should().Be(ItemData.PeptoBismol.Price);
-            rubberBands.Subtotal.Should().Be(ItemData.RubberBands.Price);
+            bananas.Subtotal.Should().Be(1.25M);
+            peptoBismol.Subtotal.Should().Be(4.88M);
+            rubberBands.Subtotal.Should().Be(10M);
         }
 
         [Test]
         public void SaleWithTwoOfEachItemHasTheCorrectPrice()
         {
-            _sale.AddItem(ItemData.Bananas.Sku);
-            _sale.AddItem(ItemData.Bananas.Sku);
+            _sale.AddItem("1245");
+            _sale.AddItem("1245");
 
-            _sale.AddItem(ItemData.PeptoBismol.Sku);
-            _sale.AddItem(ItemData.PeptoBismol.Sku);
+            _sale.AddItem("99999");
+            _sale.AddItem("99999");
 
-            _sale.AddItem(ItemData.RubberBands.Sku);
-            _sale.AddItem(ItemData.RubberBands.Sku);
+            _sale.AddItem("839");
+            _sale.AddItem("839");
 
-            var bananas = _sale.LineItems.Single(lineItem => lineItem.Sku == ItemData.Bananas.Sku);
-            var peptoBismol = _sale.LineItems.Single(lineItem => lineItem.Sku == ItemData.PeptoBismol.Sku);
-            var rubberBands = _sale.LineItems.Single(lineItem => lineItem.Sku == ItemData.RubberBands.Sku);
-            var expectedTotal = (2 * ItemData.Bananas.Price) + (2 * ItemData.PeptoBismol.Price)
-                                + (2 * ItemData.RubberBands.Price);
+            var bananas = _sale.LineItems.Single(lineItem => lineItem.Sku == "1245");
+            var peptoBismol = _sale.LineItems.Single(lineItem => lineItem.Sku == "99999");
+            var rubberBands = _sale.LineItems.Single(lineItem => lineItem.Sku == "839");
+            var expectedTotal = (2 * 1.25M) + (2 * 4.88M)
+                                + (2 * 10M);
 
             _sale.LineItems.Count.Should().Be(3);
             _sale.Total.Should().Be(expectedTotal);
 
-            bananas.Subtotal.Should().Be(2 * ItemData.Bananas.Price);
-            peptoBismol.Subtotal.Should().Be(2 * ItemData.PeptoBismol.Price);
-            rubberBands.Subtotal.Should().Be(2 * ItemData.RubberBands.Price);
+            bananas.Subtotal.Should().Be(2 * 1.25M);
+            peptoBismol.Subtotal.Should().Be(2 * 4.88M);
+            rubberBands.Subtotal.Should().Be(2 * 10M);
         }
     }
 }

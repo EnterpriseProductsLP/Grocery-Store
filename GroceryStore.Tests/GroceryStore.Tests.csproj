@@ -81,7 +81,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ItemBuilderTests.cs" />
-    <Compile Include="ItemData.cs" />
     <Compile Include="ItemTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="LineItemTests.cs" />

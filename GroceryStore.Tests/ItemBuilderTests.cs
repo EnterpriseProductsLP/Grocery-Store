@@ -20,31 +20,31 @@ namespace GroceryStore.Tests
         [Test]
         public void CanGetItemForBananas()
         {
-            var item = ItemBuilder.BuildItem(ItemData.Bananas.Sku);
+            var item = ItemBuilder.BuildItem("1245");
 
-            item.Name.Should().Be(ItemData.Bananas.Name);
-            item.Price.Should().Be(ItemData.Bananas.Price);
-            item.Sku.Should().Be(ItemData.Bananas.Sku);
+            item.Name.Should().Be("Bananas");
+            item.Price.Should().Be(1.25M);
+            item.Sku.Should().Be("1245");
         }
 
         [Test]
         public void CanGetItemForPeptoBismol()
         {
-            var item = ItemBuilder.BuildItem(ItemData.PeptoBismol.Sku);
+            var item = ItemBuilder.BuildItem("99999");
 
-            item.Name.Should().Be(ItemData.PeptoBismol.Name);
-            item.Price.Should().Be(ItemData.PeptoBismol.Price);
-            item.Sku.Should().Be(ItemData.PeptoBismol.Sku);
+            item.Name.Should().Be("Pepto Bismol");
+            item.Price.Should().Be(4.88M);
+            item.Sku.Should().Be("99999");
         }
 
         [Test]
         public void CanGetItemForRubberBands()
         {
-            var item = ItemBuilder.BuildItem(ItemData.RubberBands.Sku);
+            var item = ItemBuilder.BuildItem("839");
 
-            item.Name.Should().Be(ItemData.RubberBands.Name);
-            item.Price.Should().Be(ItemData.RubberBands.Price);
-            item.Sku.Should().Be(ItemData.RubberBands.Sku);
+            item.Name.Should().Be("Rubber Bands");
+            item.Price.Should().Be(10M);
+            item.Sku.Should().Be("839");
         }
     }
 }
