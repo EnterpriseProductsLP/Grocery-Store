@@ -32,7 +32,7 @@ namespace GroceryStore.Tests
             lineItem.Price.Should().Be(item.Price);
             lineItem.Sku.Should().Be(item.Sku);
             lineItem.Quantity.Should().Be(1);
-            lineItem.Subtotal.Should().Be(1M);
+            lineItem.RawTotal.Should().Be(1M);
         }
 
         [Test]
@@ -44,7 +44,7 @@ namespace GroceryStore.Tests
 
             lineItem.Should().NotBeNull();
             lineItem.Quantity.Should().Be(2);
-            lineItem.Subtotal.Should().Be(2M);
+            lineItem.RawTotal.Should().Be(2M);
         }
     }
 }

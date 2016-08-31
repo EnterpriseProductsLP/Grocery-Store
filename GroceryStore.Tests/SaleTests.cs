@@ -32,7 +32,7 @@ namespace GroceryStore.Tests
 
             var lineItem = _sale.LineItems.Single();
             lineItem.Quantity.Should().Be(1);
-            lineItem.Subtotal.Should().Be(1.25M);
+            lineItem.RawTotal.Should().Be(1.25M);
             _sale.Total.Should().Be(1.25M);
         }
 
@@ -51,9 +51,9 @@ namespace GroceryStore.Tests
             _sale.LineItems.Count.Should().Be(3);
             _sale.Total.Should().Be(expectedTotal);
 
-            bananas.Subtotal.Should().Be(1.25M);
-            peptoBismol.Subtotal.Should().Be(4.88M);
-            rubberBands.Subtotal.Should().Be(10M);
+            bananas.RawTotal.Should().Be(1.25M);
+            peptoBismol.RawTotal.Should().Be(4.88M);
+            rubberBands.RawTotal.Should().Be(10M);
         }
 
         [Test]
@@ -77,9 +77,9 @@ namespace GroceryStore.Tests
             _sale.LineItems.Count.Should().Be(3);
             _sale.Total.Should().Be(expectedTotal);
 
-            bananas.Subtotal.Should().Be(2 * 1.25M);
-            peptoBismol.Subtotal.Should().Be(2 * 4.88M);
-            rubberBands.Subtotal.Should().Be(2 * 10M);
+            bananas.RawTotal.Should().Be(2 * 1.25M);
+            peptoBismol.RawTotal.Should().Be(2 * 4.88M);
+            rubberBands.RawTotal.Should().Be(2 * 10M);
         }
     }
 }
