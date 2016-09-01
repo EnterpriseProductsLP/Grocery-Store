@@ -93,10 +93,10 @@ namespace GroceryStore.ConsoleApplication
             Console.WriteLine("------- --------------- --- --------");
             foreach (var lineItem in _sale.LineItems)
             {
-                var itemSku = $"{lineItem.Item.Sku, -8}";
-                var itemName = $"{lineItem.Item.Name, -16}";
+                var itemSku = $"{lineItem.Sku, -8}";
+                var itemName = $"{lineItem.Name, -16}";
                 var itemQuantity = $"{lineItem.Quantity, -4}";
-                var itemSubtotal = $"{lineItem.Subtotal.ToString("C"), -8}";
+                var itemSubtotal = $"{lineItem.RawTotal.ToString("C"), -8}";
                 Console.WriteLine(itemSku + itemName + itemQuantity + itemSubtotal);
             }
 

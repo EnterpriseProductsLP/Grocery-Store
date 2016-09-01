@@ -12,11 +12,11 @@ namespace GroceryStore
 
         public IList<LineItem> LineItems { get; }
 
-        public decimal Total => LineItems.Sum(item => item.Subtotal);
+        public decimal Total => LineItems.Sum(item => item.RawTotal);
 
         public void AddItem(string sku)
         {
-            var existingItem = LineItems.SingleOrDefault(lineItem => lineItem.Item.Sku == sku);
+            var existingItem = LineItems.SingleOrDefault(lineItem => lineItem.Sku == sku);
 
             if (existingItem != null)
             {

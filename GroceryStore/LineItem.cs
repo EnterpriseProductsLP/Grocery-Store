@@ -8,11 +8,17 @@
             AddOne();
         }
 
-        public Item Item { get; }
+        private Item Item { get; }
 
         public int Quantity { get; private set; }
 
-        public decimal Subtotal => Quantity * Item.Price;
+        public decimal RawTotal => Quantity * Item.Price;
+
+        public string Sku => Item.Sku;
+
+        public string Name => Item.Name;
+
+        public decimal Price => Item.Price;
 
         public void AddOne()
         {
