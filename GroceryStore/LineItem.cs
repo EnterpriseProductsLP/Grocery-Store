@@ -12,7 +12,7 @@
 
         public int Quantity { get; private set; }
 
-        public decimal RawTotal => Quantity*Item.Price;
+        public decimal RawTotal => Quantity * Item.Price;
 
         public string Sku => Item.Sku;
 
