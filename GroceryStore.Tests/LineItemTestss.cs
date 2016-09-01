@@ -11,7 +11,7 @@ using NUnit.Framework;
 namespace GroceryStore.Tests
 {
     [TestFixture]
-    public class LineItemTests
+    public class LineItemTestss
     {
         private readonly decimal[] _prices = { 1.25M, 10M, 4.88M };
 
@@ -36,7 +36,7 @@ namespace GroceryStore.Tests
         {
             LineItem lineItem = null;
             var item = new Item("sku", "name", 1M);
-            Action action = () => lineItem = new LineItem(item, null);
+            Action action = () => lineItem = new LineItem(item);
 
             action.ShouldNotThrow();
             lineItem.Should().NotBeNull();
@@ -51,7 +51,7 @@ namespace GroceryStore.Tests
         public void SubtotalReturnsQuantityTimesPrice()
         {
             var item = new Item("sku", "name", 1M);
-            var lineItem = new LineItem(item, null);
+            var lineItem = new LineItem(item);
             lineItem.AddOne();
 
             lineItem.Should().NotBeNull();
@@ -72,11 +72,11 @@ namespace GroceryStore.Tests
                         {
                             var item = new Item("sku", "name", price);
 
-                            var substituteDeal = Substitute.For<IProvideDeals>();
+                            var substituteDeal = Substitute.For<IDeal>();
                             substituteDeal.GetDiscount(quantity, item.Price).Returns(0);
 
-                            var lineItemStub = new LineItem(item, substituteDeal);
-                            var lineItemUnderTest = new LineItem(item, new BuySomeGetOneFreeDeal(2));
+                            var lineItemStub = new LineItem(item);
+                            var lineItemUnderTest = new LineItem(item);
 
                             lineItemStub.SetQuantity(quantity);
                             lineItemUnderTest.SetQuantity(quantity);
@@ -109,11 +109,11 @@ namespace GroceryStore.Tests
                             var item = new Item("sku", "name", price);
                             var substituteDealDiscount = freeQuantity * item.Price;
 
-                            var substituteDeal = Substitute.For<IProvideDeals>();
+                            var substituteDeal = Substitute.For<IDeal>();
                             substituteDeal.GetDiscount(quantity, item.Price).Returns(substituteDealDiscount);
 
-                            var lineItemStub = new LineItem(item, substituteDeal);
-                            var lineItemUnderTest = new LineItem(item, new BuySomeGetOneFreeDeal(2));
+                            var lineItemStub = new LineItem(item);
+                            var lineItemUnderTest = new LineItem(item);
 
                             lineItemStub.SetQuantity(quantity);
                             lineItemUnderTest.SetQuantity(quantity);
@@ -152,11 +152,11 @@ namespace GroceryStore.Tests
                             var item = new Item("sku", "name", price);
                             var substituteDealDiscount = freeQuantity * item.Price;
 
-                            var substituteDeal = Substitute.For<IProvideDeals>();
+                            var substituteDeal = Substitute.For<IDeal>();
                             substituteDeal.GetDiscount(quantity, item.Price).Returns(substituteDealDiscount);
 
-                            var lineItemStub = new LineItem(item, substituteDeal);
-                            var lineItemUnderTest = new LineItem(item, new BuySomeGetOneFreeDeal(2));
+                            var lineItemStub = new LineItem(item);
+                            var lineItemUnderTest = new LineItem(item);
 
                             lineItemStub.SetQuantity(quantity);
                             lineItemUnderTest.SetQuantity(quantity);
@@ -182,7 +182,7 @@ namespace GroceryStore.Tests
                         foreach (var price in _prices)
                         {
                             var item = new Item("sku", "name", price);
-                            var lineItem = new LineItem(item, null);
+                            var lineItem = new LineItem(item);
                             lineItem.SetQuantity(i);
 
                             var actual = lineItem.Discount;

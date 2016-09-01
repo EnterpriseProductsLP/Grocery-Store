@@ -2,11 +2,11 @@
 {
     public class LineItem
     {
-        private readonly IProvideDeals _dealProvider;
+        private readonly IDeal _dealProvider;
 
-        public LineItem(Item item, IProvideDeals dealProvider)
+        public LineItem(Item item)
         {
-            _dealProvider = dealProvider;
+            _dealProvider = DealProvider.GetDeal(item.Sku);
             Item = item;
             AddOne();
         }
@@ -18,9 +18,13 @@
         public decimal RawTotal => Quantity * Item.Price;
 
         public string Sku => Item.Sku;
+
         public decimal Subtotal => RawTotal - Discount;
+
         public string Name => Item.Name;
+
         public decimal Discount => _dealProvider?.GetDiscount(Quantity, Item.Price) ?? 0;
+
         public decimal Price => Item.Price;
 
         public void AddOne()

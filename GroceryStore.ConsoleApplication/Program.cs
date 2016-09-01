@@ -116,7 +116,7 @@ namespace GroceryStore.ConsoleApplication
                 var itemSku = $"{lineItem.Sku, -8}";
                 var itemName = $"{lineItem.Name, -16}";
                 var itemQuantity = $"{lineItem.Quantity, -4}";
-                var itemSubtotal = $"{lineItem.Subtotal.ToString("C"), -8}";
+                var itemSubtotal = $"{lineItem.RawTotal.ToString("C"), -8}";
                 Console.WriteLine(itemSku + itemName + itemQuantity + itemSubtotal);
             }
 

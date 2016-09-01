@@ -4,14 +4,14 @@ namespace GroceryStore
 {
     public static class DealProvider
     {
-        private static readonly Dictionary<string, IProvideDeals> Deals;
+        private static readonly Dictionary<string, IDeal> Deals;
 
         static DealProvider()
         {
-            Deals = new Dictionary<string, IProvideDeals>();
+            Deals = new Dictionary<string, IDeal>();
         }
 
-        public static void AddDeal(string sku, IProvideDeals dealProvider)
+        public static void AddDeal(string sku, IDeal dealProvider)
         {
             RemoveDealIfOneExists(sku);
 
@@ -23,9 +23,9 @@ namespace GroceryStore
             Deals.Clear();
         }
 
-        public static IProvideDeals GetDeal(string sku)
+        public static IDeal GetDeal(string sku)
         {
-            IProvideDeals dealProvider;
+            IDeal dealProvider;
             return Deals.TryGetValue(sku, out dealProvider) ? dealProvider : null;
         }
 

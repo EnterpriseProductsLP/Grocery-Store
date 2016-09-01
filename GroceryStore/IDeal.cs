@@ -1,6 +1,6 @@
 namespace GroceryStore
 {
-    public interface IProvideDeals
+    public interface IDeal
     {
         decimal GetDiscount(uint quantity, decimal price);
     }

@@ -25,8 +25,7 @@ namespace GroceryStore
             else
             {
                 var item = ItemBuilder.BuildItem(sku);
-                var deal = DealProvider.GetDeal(sku);
-                var lineItem = new LineItem(item, deal);
+                var lineItem = new LineItem(item);
                 LineItems.Add(lineItem);
             }
         }

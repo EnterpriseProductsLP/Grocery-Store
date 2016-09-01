@@ -1,6 +1,6 @@
 ﻿namespace GroceryStore
 {
-    public class BuySomeGetOneFreeDeal : IProvideDeals
+    public class BuySomeGetOneFreeDeal : IDeal
     {
         private readonly uint _countRequiredToGetFreeOne;
 
