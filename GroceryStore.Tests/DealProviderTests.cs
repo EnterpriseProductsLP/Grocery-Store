@@ -2,6 +2,8 @@
 
 using FluentAssertions;
 
+using GroceryStore.Tests.TestTypes;
+
 using NUnit.Framework;
 
 namespace GroceryStore.Tests
@@ -11,9 +13,10 @@ namespace GroceryStore.Tests
     {
         private const string Sku = "sku";
 
-        [OneTimeSetUp]
-        public void OneTimeSetUp()
+        [OneTimeTearDown]
+        public void OneTimeTearDown()
         {
+            DealProvider.ClearDeals();
         }
 
         [SetUp]
@@ -33,7 +36,6 @@ namespace GroceryStore.Tests
         [Test]
         public void AddDealShouldReplaceAnyExistingDealForTheGivenSku()
         {
-            
             DealProvider.AddDeal(Sku, new BuySomeGetOneFreeDeal(2));
             DealProvider.AddDeal(Sku, new TestDeal());
             var actualDeal = DealProvider.GetDeal(Sku);
@@ -52,7 +54,7 @@ namespace GroceryStore.Tests
         public void GetDealReturnsNullWhenThereIsNoDealForTheGivenSku()
         {
             var actualDeal = DealProvider.GetDeal(Sku);
-            actualDeal.Should().BeNull();
+            actualDeal.Should().BeOfType<DoNothingDeal>();
         }
 
         [Test]
@@ -71,7 +73,7 @@ namespace GroceryStore.Tests
 
             DealProvider.RemoveDeal(Sku);
             currentDeal = DealProvider.GetDeal(Sku);
-            currentDeal.Should().BeNull();
+            currentDeal.Should().BeOfType<DoNothingDeal>();
         }
     }
 }

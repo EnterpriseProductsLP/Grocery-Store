@@ -2,16 +2,20 @@
 {
     public class LineItem
     {
-        private readonly IDeal _dealProvider;
+        private readonly IDeal _deal;
 
         public LineItem(Item item)
         {
-            _dealProvider = DealProvider.GetDeal(item.Sku);
+            _deal = DealProvider.GetDeal(item.Sku);
             Item = item;
             AddOne();
         }
 
-        private Item Item { get; }
+        public decimal Discount => _deal.GetDiscount(Quantity, Item.Price);
+
+        public string Name => Item.Name;
+
+        public decimal Price => Item.Price;
 
         public uint Quantity { get; private set; }
 
@@ -21,11 +25,7 @@
 
         public decimal Subtotal => RawTotal - Discount;
 
-        public string Name => Item.Name;
-
-        public decimal Discount => _dealProvider?.GetDiscount(Quantity, Item.Price) ?? 0;
-
-        public decimal Price => Item.Price;
+        private Item Item { get; }
 
         public void AddOne()
         {

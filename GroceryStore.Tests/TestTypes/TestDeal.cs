@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GroceryStore.Tests
+namespace GroceryStore.Tests.TestTypes
 {
     internal class TestDeal : IDeal
     {

@@ -26,7 +26,7 @@ namespace GroceryStore
         public static IDeal GetDeal(string sku)
         {
             IDeal dealProvider;
-            return Deals.TryGetValue(sku, out dealProvider) ? dealProvider : null;
+            return Deals.TryGetValue(sku, out dealProvider) ? dealProvider : new DoNothingDeal();
         }
 
         public static void RemoveDeal(string sku)
