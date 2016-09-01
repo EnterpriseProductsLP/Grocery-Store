@@ -80,7 +80,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ItemBuilderTests\When_Asked_To_Build_For_An_Invalid_Sku.cs" />
+    <Compile Include="ItemBuilderTests\When_Building_For_An_Invalid_Sku.cs" />
     <Compile Include="ItemBuilderTests\When_Building_Bananas.cs" />
     <Compile Include="ItemBuilderTests\When_Building_Pepto_Bismol.cs" />
     <Compile Include="ItemBuilderTests\When_Building_Rubber_Bands.cs" />
