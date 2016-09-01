@@ -7,7 +7,7 @@ using NUnit.Framework;
 namespace GroceryStore.Tests.ItemBuilderTests
 {
     [TestFixture]
-    public class When_Asked_To_Build_For_An_Invalid_Sku
+    public class When_Building_For_An_Invalid_Sku
     {
         private Action _action;
 
