@@ -12,6 +12,8 @@ namespace GroceryStore.ConsoleApplication
 
         static void Main()
         {
+            Console.SetBufferSize(1000, 9999);
+            Console.ForegroundColor = ConsoleColor.White;
             Console.CancelKeyPress += ConsoleOnCancelKeyPress;
 
             Run();
