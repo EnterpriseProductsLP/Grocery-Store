@@ -19,7 +19,7 @@ namespace GroceryStore.ConsoleApplication
             Run();
         }
 
-        private static void AddDiscount(string sku, string dealType)
+        private static void AddDiscountk(string sku, string dealType)
         {
             throw new NotImplementedException();
         }
@@ -98,6 +98,11 @@ namespace GroceryStore.ConsoleApplication
                 // Console.WriteLine("What SKU should this discount apply to?:  ");
                 // input = Console.ReadLine()
             }
+        }
+
+        private static void AddDiscount(string sku, string dealType)
+        {
+            throw new NotImplementedException();
         }
 
         private static string ReadDiscountDealType()
