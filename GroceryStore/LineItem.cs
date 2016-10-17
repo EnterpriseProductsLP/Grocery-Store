@@ -4,14 +4,16 @@
     {
         private readonly IDeal _deal;
 
-        public LineItem(Item item)
+        public LineItem(Item item, IProvideDeals dealProvider = null)
         {
-            _deal = DealProvider.GetDeal(item.Sku);
+            _deal = dealProvider == null ? new DoNothingDeal() : dealProvider.GetDeal(item.Sku);
             Item = item;
             AddOne();
         }
 
-        public decimal Discount => _deal.GetDiscount(Quantity, Item.Price);
+        public decimal Discount => _deal.GetDiscount(Quantity, Price);
+
+        private Item Item { get; }
 
         public string Name => Item.Name;
 
@@ -24,8 +26,6 @@
         public string Sku => Item.Sku;
 
         public decimal Subtotal => RawTotal - Discount;
-
-        private Item Item { get; }
 
         public void AddOne()
         {

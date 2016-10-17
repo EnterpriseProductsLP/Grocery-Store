@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace GroceryStore.ConsoleApplication
 {
@@ -7,15 +6,22 @@ namespace GroceryStore.ConsoleApplication
     {
         private static bool _lastSkuWasValid;
 
-        private static bool _quit;
+        private static bool _running = true;
 
         private static Sale _sale = new Sale();
+
+        private static readonly bool _configuringDeals = true;
 
         static void Main()
         {
             Console.CancelKeyPress += ConsoleOnCancelKeyPress;
 
             Run();
+        }
+
+        private static void AddDiscount(string sku, string dealType)
+        {
+            throw new NotImplementedException();
         }
 
         private static void AddItemToSale(string sku)
@@ -51,49 +57,82 @@ namespace GroceryStore.ConsoleApplication
             Console.WriteLine();
 
             Console.WriteLine($"{e.SpecialKey} detected.  Stopping register.");
-            _quit = true;
+            _running = false;
             e.Cancel = true;
             Environment.Exit(0);
         }
 
         private static void Run()
         {
-            var sku = string.Empty;
+            DealLoop();
 
-            SetupLoop();
-
-            SalesLoop(sku);
+            SalesLoop();
         }
 
-        private static void SetupLoop()
+        private static void DealLoop()
         {
-            Console.Write("Add a Discount [Y/N]?:  ");
-            var input = Console.ReadLine();
-            var inputIsValid = new List<string> { "y", "Y", "n", "N" }.Contains(input);
+            var sku = string.Empty;
+            var dealType = string.Empty;
 
-            if (inputIsValid)
+            while (_configuringDeals)
             {
-                
+                Console.Clear();
+                WriteDiscounts(sku, dealType);
+
+                sku = ReadDiscountSku();
+                dealType = ReadDiscountDealType();
+                AddDiscount(sku, dealType);
+
+                // Console.Write("Add a Discount [Y/N]?:  ");
+                // var input = Console.ReadLine();
+                // var inputIsValid = new List<string> { "y", "Y", "n", "N" }.Contains(input);
+
+                // if (!inputIsValid)
+                // {
+                // Console.WriteLine("Input invalid.  Please enter 'y', 'n', 'Y', or 'N'");
+                // Console.WriteLine("Press any key to continue...");
+                // Console.ReadLine();
+                // continue;
+                // }
+
+                // Console.WriteLine("What SKU should this discount apply to?:  ");
+                // input = Console.ReadLine()
             }
         }
 
-        private static void SalesLoop(string sku)
+        private static string ReadDiscountDealType()
         {
-            while (!_quit)
+            throw new NotImplementedException();
+        }
+
+        private static string ReadDiscountSku()
+        {
+            throw new NotImplementedException();
+        }
+
+        private static void SalesLoop()
+        {
+            var sku = string.Empty;
+            while (_running)
             {
                 Console.Clear();
                 WriteSale(sku);
 
-                sku = ReadInput();
+                sku = ReadSaleSku();
                 AddItemToSale(sku);
             }
         }
 
-        private static string ReadInput()
+        private static string ReadSaleSku()
         {
             Console.Write("Scan product: ");
             var sku = Console.ReadLine();
             return string.IsNullOrWhiteSpace(sku) ? string.Empty : sku.Trim();
+        }
+
+        private static void WriteDiscounts(string sku, string dealType)
+        {
+            throw new NotImplementedException();
         }
 
         private static void WriteSale(string sku)

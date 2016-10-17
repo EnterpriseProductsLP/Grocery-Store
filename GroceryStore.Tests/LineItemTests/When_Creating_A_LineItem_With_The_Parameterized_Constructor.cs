@@ -15,7 +15,7 @@ namespace GroceryStore.Tests.LineItemTests
         public void OneTimeSetUp()
         {
             _item = new Item("sku", "name", 1M);
-            _lineItem = new LineItem(_item);
+            _lineItem = new LineItem(_item, null);
         }
 
         [Test]

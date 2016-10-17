@@ -20,7 +20,7 @@ namespace GroceryStore.Tests.LineItemTests
         [SetUp]
         public void SetUp()
         {
-            _lineItem = new LineItem(_item);
+            _lineItem = new LineItem(_item, null);
         }
 
         [Test]

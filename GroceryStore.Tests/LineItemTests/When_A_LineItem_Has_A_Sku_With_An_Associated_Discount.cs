@@ -15,6 +15,8 @@ namespace GroceryStore.Tests.LineItemTests
 
         private LineItem _lineItem;
 
+        private IProvideDeals _substitueDealProvider;
+
         private IDeal _substituteDeal;
 
         [OneTimeSetUp]
@@ -22,21 +24,22 @@ namespace GroceryStore.Tests.LineItemTests
         {
             _substituteDeal = Substitute.For<IDeal>();
             _substituteDeal.GetDiscount(Arg.Any<uint>(), Arg.Any<decimal>()).Returns(ExpectedDiscount);
-            DealProvider.AddDeal(Sku, _substituteDeal);
+            _substitueDealProvider = Substitute.For<IProvideDeals>();
+            _substitueDealProvider.GetDeal(Arg.Any<string>()).Returns(_substituteDeal);
 
-            _lineItem = new LineItem(ItemBuilder.BuildItem(Sku));
-        }
-
-        [OneTimeTearDown]
-        public void OneTimeTearDown()
-        {
-            DealProvider.ClearDeals();
+            _lineItem = new LineItem(ItemBuilder.BuildItem(Sku), _substitueDealProvider);
         }
 
         [Test]
         public void Discount_Should_Be_Correct()
         {
             _lineItem.Discount.Should().Be(ExpectedDiscount);
+        }
+
+        [Test]
+        public void IProvideDeals_GetDeal_Method_Is_Invoked()
+        {
+            _substitueDealProvider.Received().GetDeal("1245");
         }
 
         [Test]

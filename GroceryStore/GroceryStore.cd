@@ -20,19 +20,13 @@
       <HashCode>AAAAAAAAAAAAAAAAAAACAAAAgAAAQAAAAAAAAAAAAAA=</HashCode>
       <FileName>Sale.cs</FileName>
     </TypeIdentifier>
-    <ShowAsCollectionAssociation>
-      <Property Name="LineItems" />
-    </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="GroceryStore.LineItems">
-    <Position X="1.25" Y="3.5" Width="2.25" />
+  <Class Name="GroceryStore.LineItem">
+    <Position X="3.75" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAEAAAAAAAAAAAEQAAAAAAAAAAAgAAAAAA=</HashCode>
-      <FileName>LineItems.cs</FileName>
+      <HashCode>EAAAAAAAAQAEAAAIAAAAAAQEQAAAAAAAEgAAgAAAAAA=</HashCode>
+      <FileName>LineItem.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Item" />
-    </ShowAsAssociation>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

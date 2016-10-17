@@ -13,66 +13,63 @@ namespace GroceryStore.Tests
     {
         private const string Sku = "sku";
 
-        [OneTimeTearDown]
-        public void OneTimeTearDown()
-        {
-            DealProvider.ClearDeals();
-        }
+        private DealConfigurator _dealConfigurator;
 
         [SetUp]
         public void SetUp()
         {
-            DealProvider.ClearDeals();
+            _dealConfigurator = new DealConfigurator();
+            _dealConfigurator.ClearDeals();
         }
 
         [Test]
         public void AddDealDoesNotThrowIfCalledTwiceForTheSameSku()
         {
-            DealProvider.AddDeal(Sku, new BuySomeGetOneFreeDeal(2));
-            Action action = () => DealProvider.AddDeal(Sku, new BuySomeGetOneFreeDeal(2));
+            _dealConfigurator.AddDeal(Sku, new BuySomeGetOneFreeDeal(2));
+            Action action = () => _dealConfigurator.AddDeal(Sku, new BuySomeGetOneFreeDeal(2));
             action.ShouldNotThrow();
         }
 
         [Test]
         public void AddDealShouldReplaceAnyExistingDealForTheGivenSku()
         {
-            DealProvider.AddDeal(Sku, new BuySomeGetOneFreeDeal(2));
-            DealProvider.AddDeal(Sku, new TestDeal());
-            var actualDeal = DealProvider.GetDeal(Sku);
+            _dealConfigurator.AddDeal(Sku, new BuySomeGetOneFreeDeal(2));
+            _dealConfigurator.AddDeal(Sku, new TestDeal());
+            var actualDeal = _dealConfigurator.GetDeal(Sku);
             actualDeal.Should().BeOfType<TestDeal>();
         }
 
         [Test]
         public void GetDealReturnsAddedDealForTheGivenSku()
         {
-            DealProvider.AddDeal(Sku, new BuySomeGetOneFreeDeal(2));
-            var actualDeal = DealProvider.GetDeal(Sku);
+            _dealConfigurator.AddDeal(Sku, new BuySomeGetOneFreeDeal(2));
+            var actualDeal = _dealConfigurator.GetDeal(Sku);
             actualDeal.Should().BeOfType<BuySomeGetOneFreeDeal>();
         }
 
         [Test]
         public void GetDealReturnsNullWhenThereIsNoDealForTheGivenSku()
         {
-            var actualDeal = DealProvider.GetDeal(Sku);
+            var actualDeal = _dealConfigurator.GetDeal(Sku);
             actualDeal.Should().BeOfType<DoNothingDeal>();
         }
 
         [Test]
         public void RemoveDealDoesNotThrowIfThereIsNoDealForTheGivenSku()
         {
-            Action action = () => DealProvider.RemoveDeal(Sku);
+            Action action = () => _dealConfigurator.RemoveDeal(Sku);
             action.ShouldNotThrow();
         }
 
         [Test]
         public void RemoveDealShouldRemoveTheDealForTheGivenSku()
         {
-            DealProvider.AddDeal(Sku, new BuySomeGetOneFreeDeal(2));
-            var currentDeal = DealProvider.GetDeal(Sku);
+            _dealConfigurator.AddDeal(Sku, new BuySomeGetOneFreeDeal(2));
+            var currentDeal = _dealConfigurator.GetDeal(Sku);
             currentDeal.Should().BeOfType<BuySomeGetOneFreeDeal>();
 
-            DealProvider.RemoveDeal(Sku);
-            currentDeal = DealProvider.GetDeal(Sku);
+            _dealConfigurator.RemoveDeal(Sku);
+            currentDeal = _dealConfigurator.GetDeal(Sku);
             currentDeal.Should().BeOfType<DoNothingDeal>();
         }
     }
