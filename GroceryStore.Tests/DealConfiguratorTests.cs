@@ -1,9 +1,8 @@
 ﻿using System;
-
 using FluentAssertions;
 using GroceryStore.Deals;
+using GroceryStore.Extensions;
 using GroceryStore.Tests.TestTypes;
-
 using NUnit.Framework;
 
 namespace GroceryStore.Tests
@@ -11,15 +10,15 @@ namespace GroceryStore.Tests
     [TestFixture]
     public class DealConfiguratorTests
     {
-        private const string Sku = "sku";
-
-        private DealConfigurator _dealConfigurator;
-
         [SetUp]
         public void SetUp()
         {
             _dealConfigurator = new DealConfigurator();
         }
+
+        private const string Sku = "sku";
+
+        private DealConfigurator _dealConfigurator;
 
         [Test]
         public void AddDealDoesNotThrowIfCalledTwiceForTheSameSku()
@@ -37,6 +36,16 @@ namespace GroceryStore.Tests
             var actualDeal = _dealConfigurator.GetDeal(Sku);
             actualDeal.Should().BeOfType<TestDeal>();
         }
+
+        [Test]
+        public void GetConfiguredDealsContainsMetadataForConfiguredDealsS()
+        {
+            var deal = new BuyTwoGetOneFreeDeal();
+            var metaData = deal.GetMetadata();
+            _dealConfigurator.AddDeal(Sku, deal);
+            _dealConfigurator.ConfiguredDeals.Should().Contain(metaData);
+        }
+
 
         [Test]
         public void GetDealReturnsAddedDealForTheGivenSku()

@@ -1,9 +1,22 @@
-﻿using GroceryStore.Interfaces;
+﻿using System.Collections.Generic;
+using GroceryStore.Extensions;
+using GroceryStore.Interfaces;
 
 namespace GroceryStore.Deals
 {
     public class DealConfigurator : DealProvider, IConfigureDeals
     {
+        public IEnumerable<DealMetadata> ConfiguredDeals
+        {
+            get
+            {
+                foreach (var deal in Deals.Values)
+                {
+                    yield return deal.GetMetadata();
+                }
+            }
+        }
+
         public void AddDeal(string sku, IDeal dealProvider)
         {
             RemoveDealIfOneExists(sku);

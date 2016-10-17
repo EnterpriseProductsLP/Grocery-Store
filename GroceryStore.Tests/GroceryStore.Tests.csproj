@@ -87,6 +87,7 @@
     <Compile Include="ItemBuilderTests\When_Building_Bananas.cs" />
     <Compile Include="ItemBuilderTests\When_Building_Pepto_Bismol.cs" />
     <Compile Include="ItemBuilderTests\When_Building_Rubber_Bands.cs" />
+    <Compile Include="ItemBuilderTests\When_Checking_SupportedSkus.cs" />
     <Compile Include="ItemTests\When_Creating_An_Item_With_A_Zero_Price.cs" />
     <Compile Include="ItemTests\When_Creating_An_Item_With_A_Negative_Price.cs" />
     <Compile Include="ItemTests\When_Creating_An_Item_With_The_Parameterized_Constructor.cs" />

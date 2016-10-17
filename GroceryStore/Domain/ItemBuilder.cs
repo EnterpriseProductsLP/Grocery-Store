@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace GroceryStore.Domain
 {
@@ -27,6 +29,16 @@ namespace GroceryStore.Domain
                     {
                         throw new ArgumentException($"The given SKU: {sku} is invalid.");
                     }
+            }
+        }
+
+        public static IEnumerable<string> SupportedSkus
+        {
+            get
+            {
+                yield return "839";
+                yield return "1245";
+                yield return "99999";
             }
         }
     }
