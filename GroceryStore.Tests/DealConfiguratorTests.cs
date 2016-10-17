@@ -19,7 +19,6 @@ namespace GroceryStore.Tests
         public void SetUp()
         {
             _dealConfigurator = new DealConfigurator();
-            _dealConfigurator.ClearDeals();
         }
 
         [Test]

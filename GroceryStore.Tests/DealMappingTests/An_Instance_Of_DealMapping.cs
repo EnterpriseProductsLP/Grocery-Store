@@ -3,7 +3,7 @@ using FluentAssertions;
 using GroceryStore.Deals;
 using NUnit.Framework;
 
-namespace GroceryStore.Tests
+namespace GroceryStore.Tests.DealMappingTests
 {
     [TestFixture]
     public class An_Instance_Of_DealMapping
