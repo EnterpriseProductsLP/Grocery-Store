@@ -5,7 +5,7 @@ namespace GroceryStore.Interfaces
 {
     public interface IConfigureDeals : IProvideDeals
     {
-        IEnumerable<DealMetadata> ConfiguredDeals { get; }
+        IDictionary<string, DealMetadata> ConfiguredDeals { get; }
 
         void AddDeal(string sku, IDeal dealProvider);
 

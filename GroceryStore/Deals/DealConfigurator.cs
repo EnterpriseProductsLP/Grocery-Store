@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+
 using GroceryStore.Extensions;
 using GroceryStore.Interfaces;
 
@@ -6,14 +7,19 @@ namespace GroceryStore.Deals
 {
     public class DealConfigurator : DealProvider, IConfigureDeals
     {
-        public IEnumerable<DealMetadata> ConfiguredDeals
+        public IDictionary<string, DealMetadata> ConfiguredDeals
         {
             get
             {
-                foreach (var deal in Deals.Values)
+                var configuredDeals = new Dictionary<string, DealMetadata>();
+                foreach (var deal in Deals)
                 {
-                    yield return deal.GetMetadata();
+                    var sku = deal.Key;
+                    var metaData = deal.Value.GetMetadata();
+                    configuredDeals.Add(sku, metaData);
                 }
+
+                return configuredDeals;
             }
         }
 
