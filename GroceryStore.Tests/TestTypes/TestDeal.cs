@@ -1,4 +1,5 @@
 ﻿using System;
+using GroceryStore.Interfaces;
 
 namespace GroceryStore.Tests.TestTypes
 {

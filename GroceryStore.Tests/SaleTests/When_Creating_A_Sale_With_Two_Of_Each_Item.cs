@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 
 using FluentAssertions;
-
+using GroceryStore.Domain;
 using NUnit.Framework;
 
 namespace GroceryStore.Tests.SaleTests

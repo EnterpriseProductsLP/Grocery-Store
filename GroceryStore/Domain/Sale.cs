@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using GroceryStore.Deals;
+using GroceryStore.Interfaces;
 
-namespace GroceryStore
+namespace GroceryStore.Domain
 {
     public class Sale
     {

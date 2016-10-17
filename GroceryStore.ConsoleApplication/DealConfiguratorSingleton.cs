@@ -1,4 +1,6 @@
 ﻿using System;
+using GroceryStore.Deals;
+using GroceryStore.Interfaces;
 
 namespace GroceryStore.ConsoleApplication
 {

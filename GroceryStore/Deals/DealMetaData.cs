@@ -1,6 +1,6 @@
 using System;
 
-namespace GroceryStore
+namespace GroceryStore.Deals
 {
     [AttributeUsage(AttributeTargets.Class)]
     public class DealMetadata : Attribute

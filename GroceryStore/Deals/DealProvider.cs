@@ -1,6 +1,7 @@
 using System.Collections.Generic;
+using GroceryStore.Interfaces;
 
-namespace GroceryStore
+namespace GroceryStore.Deals
 {
     public class DealProvider : IProvideDeals
     {

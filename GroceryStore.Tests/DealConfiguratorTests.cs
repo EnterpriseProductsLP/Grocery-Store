@@ -1,7 +1,7 @@
 ﻿using System;
 
 using FluentAssertions;
-
+using GroceryStore.Deals;
 using GroceryStore.Tests.TestTypes;
 
 using NUnit.Framework;

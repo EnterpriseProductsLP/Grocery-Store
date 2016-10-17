@@ -1,4 +1,4 @@
-﻿namespace GroceryStore
+﻿namespace GroceryStore.Interfaces
 {
     public interface IProvideDeals
     {

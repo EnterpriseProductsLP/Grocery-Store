@@ -1,5 +1,5 @@
 ﻿using FluentAssertions;
-
+using GroceryStore.Domain;
 using NUnit.Framework;
 
 namespace GroceryStore.Tests.LineItemTests
@@ -20,7 +20,7 @@ namespace GroceryStore.Tests.LineItemTests
         [SetUp]
         public void SetUp()
         {
-            _lineItem = new LineItem(_item, null);
+            _lineItem = new LineItem(_item);
         }
 
         [Test]

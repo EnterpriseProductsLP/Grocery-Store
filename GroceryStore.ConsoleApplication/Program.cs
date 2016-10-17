@@ -1,4 +1,5 @@
 ﻿using System;
+using GroceryStore.Domain;
 
 namespace GroceryStore.ConsoleApplication
 {
@@ -17,11 +18,6 @@ namespace GroceryStore.ConsoleApplication
             Console.CancelKeyPress += ConsoleOnCancelKeyPress;
 
             Run();
-        }
-
-        private static void AddDiscountk(string sku, string dealType)
-        {
-            throw new NotImplementedException();
         }
 
         private static void AddItemToSale(string sku)

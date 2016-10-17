@@ -1,5 +1,6 @@
 ﻿using FluentAssertions;
-
+using GroceryStore.Deals;
+using GroceryStore.Domain;
 using NUnit.Framework;
 
 namespace GroceryStore.Tests.SaleTests

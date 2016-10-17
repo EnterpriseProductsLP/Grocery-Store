@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using GroceryStore.Deals;
 
-namespace GroceryStore
+namespace GroceryStore.Interfaces
 {
     public interface IMapCharactersToDeals
     {

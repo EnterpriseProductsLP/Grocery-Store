@@ -1,4 +1,7 @@
-﻿namespace GroceryStore
+﻿using GroceryStore.Deals;
+using GroceryStore.Interfaces;
+
+namespace GroceryStore.Domain
 {
     public class LineItem
     {

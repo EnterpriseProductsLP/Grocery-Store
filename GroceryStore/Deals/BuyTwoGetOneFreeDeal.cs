@@ -1,6 +1,6 @@
-namespace GroceryStore
+namespace GroceryStore.Deals
 {
-    [DealMetadata('c', "Buy two get one free.")]
+    [DealMetadata(DealConstants.BuyTwoGetOneFreeDeal.Identifier, DealConstants.BuyTwoGetOneFreeDeal.Description)]
     public class BuyTwoGetOneFreeDeal : BuySomeGetOneFreeDeal
     {
         public BuyTwoGetOneFreeDeal() : base(2)

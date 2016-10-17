@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GroceryStore
+namespace GroceryStore.Domain
 {
     public class Item
     {
