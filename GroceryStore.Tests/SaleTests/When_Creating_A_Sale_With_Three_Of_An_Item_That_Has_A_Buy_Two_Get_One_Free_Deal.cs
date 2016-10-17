@@ -15,7 +15,7 @@ namespace GroceryStore.Tests.SaleTests
         public void OneTimeSetUp()
         {
             _dealConfigurator = new DealConfigurator();
-            _dealConfigurator.AddDeal("1245", new BuySomeGetOneFreeDeal(2));
+            _dealConfigurator.AddDeal("1245", new BuyTwoGetOneFreeDeal());
 
             _sale = new Sale(_dealConfigurator);
             _sale.AddItem("1245");

@@ -1,10 +1,10 @@
 ﻿namespace GroceryStore
 {
-    public class BuySomeGetOneFreeDeal : IDeal
+    public abstract class BuySomeGetOneFreeDeal : IDeal
     {
         private readonly uint _countRequiredToGetFreeOne;
 
-        public BuySomeGetOneFreeDeal(uint countRequiredToGetFreeOne)
+        protected BuySomeGetOneFreeDeal(uint countRequiredToGetFreeOne)
         {
             _countRequiredToGetFreeOne = countRequiredToGetFreeOne;
         }
@@ -13,7 +13,7 @@
         {
             // Warning disabled.  Loss of fraction is the intended behavior.
             // ReSharper disable once PossibleLossOfFraction
-            return quantity / (_countRequiredToGetFreeOne + 1) * price;
+            return quantity/(_countRequiredToGetFreeOne + 1)*price;
         }
     }
 }

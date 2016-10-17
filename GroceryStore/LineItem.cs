@@ -6,8 +6,8 @@
 
         public LineItem(Item item, IProvideDeals dealProvider = null)
         {
-            _deal = dealProvider == null ? new DoNothingDeal() : dealProvider.GetDeal(item.Sku);
             Item = item;
+            _deal = dealProvider == null ? new DoNothingDeal() : dealProvider.GetDeal(Sku);
             AddOne();
         }
 

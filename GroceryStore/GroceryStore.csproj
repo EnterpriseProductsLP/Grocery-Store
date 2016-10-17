@@ -41,12 +41,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BuySomeGetOneFreeDeal.cs" />
+    <Compile Include="BuyTwoGetOneFreeDeal.cs" />
     <Compile Include="DealConfigurator.cs" />
+    <Compile Include="DealMapping.cs" />
+    <Compile Include="DealMetaData.cs" />
     <Compile Include="DealProvider.cs" />
     <Compile Include="DoNothingDeal.cs" />
     <Compile Include="DoNothingDealProvider.cs" />
     <Compile Include="IDeal.cs" />
     <Compile Include="IConfigureDeals.cs" />
+    <Compile Include="IMapCharactersToDeals.cs" />
     <Compile Include="IProvideDeals.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="ItemBuilder.cs" />

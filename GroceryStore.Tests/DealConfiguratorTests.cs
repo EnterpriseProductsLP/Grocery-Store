@@ -9,7 +9,7 @@ using NUnit.Framework;
 namespace GroceryStore.Tests
 {
     [TestFixture]
-    public class DealProviderTests
+    public class DealConfiguratorTests
     {
         private const string Sku = "sku";
 
@@ -25,15 +25,15 @@ namespace GroceryStore.Tests
         [Test]
         public void AddDealDoesNotThrowIfCalledTwiceForTheSameSku()
         {
-            _dealConfigurator.AddDeal(Sku, new BuySomeGetOneFreeDeal(2));
-            Action action = () => _dealConfigurator.AddDeal(Sku, new BuySomeGetOneFreeDeal(2));
+            _dealConfigurator.AddDeal(Sku, new BuyTwoGetOneFreeDeal());
+            Action action = () => _dealConfigurator.AddDeal(Sku, new BuyTwoGetOneFreeDeal());
             action.ShouldNotThrow();
         }
 
         [Test]
         public void AddDealShouldReplaceAnyExistingDealForTheGivenSku()
         {
-            _dealConfigurator.AddDeal(Sku, new BuySomeGetOneFreeDeal(2));
+            _dealConfigurator.AddDeal(Sku, new BuyTwoGetOneFreeDeal());
             _dealConfigurator.AddDeal(Sku, new TestDeal());
             var actualDeal = _dealConfigurator.GetDeal(Sku);
             actualDeal.Should().BeOfType<TestDeal>();
@@ -42,9 +42,9 @@ namespace GroceryStore.Tests
         [Test]
         public void GetDealReturnsAddedDealForTheGivenSku()
         {
-            _dealConfigurator.AddDeal(Sku, new BuySomeGetOneFreeDeal(2));
+            _dealConfigurator.AddDeal(Sku, new BuyTwoGetOneFreeDeal());
             var actualDeal = _dealConfigurator.GetDeal(Sku);
-            actualDeal.Should().BeOfType<BuySomeGetOneFreeDeal>();
+            actualDeal.Should().BeOfType<BuyTwoGetOneFreeDeal>();
         }
 
         [Test]
@@ -64,9 +64,9 @@ namespace GroceryStore.Tests
         [Test]
         public void RemoveDealShouldRemoveTheDealForTheGivenSku()
         {
-            _dealConfigurator.AddDeal(Sku, new BuySomeGetOneFreeDeal(2));
+            _dealConfigurator.AddDeal(Sku, new BuyTwoGetOneFreeDeal());
             var currentDeal = _dealConfigurator.GetDeal(Sku);
-            currentDeal.Should().BeOfType<BuySomeGetOneFreeDeal>();
+            currentDeal.Should().BeOfType<BuyTwoGetOneFreeDeal>();
 
             _dealConfigurator.RemoveDeal(Sku);
             currentDeal = _dealConfigurator.GetDeal(Sku);

@@ -4,7 +4,7 @@ namespace GroceryStore
 {
     public class DealProvider : IProvideDeals
     {
-        protected readonly Dictionary<string, IDeal> Deals;
+        protected readonly IDictionary<string, IDeal> Deals;
 
         public DealProvider()
         {
