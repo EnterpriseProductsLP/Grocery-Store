@@ -10,10 +10,10 @@ namespace GroceryStore.ConsoleApplication
 {
     internal class Program
     {
-        private static bool _lastDealTypeWasValid;
 
         private static bool _lastDiscountSkuWasValid;
 
+        private static bool _lastDealTypeWasValid;
         private static bool _lastSkuWasValid;
 
         private static bool _running = true;
@@ -22,9 +22,11 @@ namespace GroceryStore.ConsoleApplication
 
         private static bool _configuringDeals = true;
 
-        private static void Main()
+        public static void Main()
         {
-            Console.CancelKeyPress += ExitApplication;
+            Console.SetBufferSize(1000, 9999);
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.CancelKeyPress += ConsoleOnCancelKeyPress;
 
             Run();
         }
