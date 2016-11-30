@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using FluentAssertions;
 using GroceryStore.Deals;
 using GroceryStore.Extensions;
@@ -43,7 +44,8 @@ namespace GroceryStore.Tests
             var deal = new BuyTwoGetOneFreeDeal();
             var metaData = deal.GetMetadata();
             _dealConfigurator.AddDeal(Sku, deal);
-            _dealConfigurator.ConfiguredDeals.Should().Contain(metaData);
+            var expectedValue = new KeyValuePair<string, DealMetadata>(Sku, metaData);
+            _dealConfigurator.ConfiguredDeals.Should().Contain(expectedValue);
         }
 
 
