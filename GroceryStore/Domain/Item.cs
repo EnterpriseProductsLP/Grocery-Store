@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GroceryStore
+namespace GroceryStore.Domain
 {
     public class Item
     {
@@ -9,6 +9,11 @@ namespace GroceryStore
             if (price < 0)
             {
                 throw new ArgumentException("An item cannot have a negative price.", nameof(price));
+            }
+
+            if (price == 0)
+            {
+                throw new ArgumentException("An item cannot have a price of zero.", nameof(price));
             }
 
             Sku = sku;

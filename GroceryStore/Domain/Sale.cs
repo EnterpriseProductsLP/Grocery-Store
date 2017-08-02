@@ -1,18 +1,23 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using GroceryStore.Deals;
+using GroceryStore.Interfaces;
 
-namespace GroceryStore
+namespace GroceryStore.Domain
 {
     public class Sale
     {
-        public Sale()
+        private readonly IProvideDeals _dealProvider;
+
+        public Sale(IProvideDeals dealProvider = null)
         {
+            _dealProvider = dealProvider ?? new DoNothingDealProvider();
             LineItems = new List<LineItem>();
         }
 
         public IList<LineItem> LineItems { get; }
 
-        public decimal Total => LineItems.Sum(item => item.RawTotal);
+        public decimal Total => LineItems.Sum(item => item.Subtotal);
 
         public void AddItem(string sku)
         {
@@ -25,7 +30,7 @@ namespace GroceryStore
             else
             {
                 var item = ItemBuilder.BuildItem(sku);
-                var lineItem = new LineItem(item);
+                var lineItem = new LineItem(item, _dealProvider);
                 LineItems.Add(lineItem);
             }
         }

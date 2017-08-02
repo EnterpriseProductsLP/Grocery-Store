@@ -1,5 +1,5 @@
 ﻿using FluentAssertions;
-
+using GroceryStore.Domain;
 using NUnit.Framework;
 
 namespace GroceryStore.Tests.LineItemTests
@@ -26,12 +26,14 @@ namespace GroceryStore.Tests.LineItemTests
         [Test]
         public void All_Properties_Should_Be_Correct()
         {
-            for (var i = 0; i < 100; i++)
+            for (uint i = 0; i < 100; i++)
             {
                 var expectedQuantity = i + 2;
+                _lineItem.AddOne();
 
                 Quantity_Should_Be_Correct(expectedQuantity);
                 Raw_Total_Should_Be_Price_Times_Quantity(expectedQuantity);
+                Subtotal_Should_Be_Raw_Total_Minus_Discount();
             }
         }
 
@@ -53,17 +55,21 @@ namespace GroceryStore.Tests.LineItemTests
             _lineItem.Sku.Should().Be(_item.Sku);
         }
 
-        private void Quantity_Should_Be_Correct(int i)
+        private void Quantity_Should_Be_Correct(uint i)
         {
             {
-                _lineItem.AddOne();
                 _lineItem.Quantity.Should().Be(i);
             }
         }
 
-        private void Raw_Total_Should_Be_Price_Times_Quantity(int quantity)
+        private void Raw_Total_Should_Be_Price_Times_Quantity(uint quantity)
         {
             _lineItem.RawTotal.Should().Be(_item.Price * quantity);
+        }
+
+        private void Subtotal_Should_Be_Raw_Total_Minus_Discount()
+        {
+            _lineItem.Subtotal.Should().Be(_lineItem.RawTotal - _lineItem.Discount);
         }
     }
 }
