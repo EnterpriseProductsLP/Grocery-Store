@@ -9,7 +9,7 @@ namespace GroceryStore.Deals
     {
         private readonly IDictionary<char, IDeal> _mappedDeals;
 
-        private IList<IDeal> _supportedDeals { get; }
+        private readonly IList<IDeal> _supportedDeals;
 
         public DealMapping()
         {

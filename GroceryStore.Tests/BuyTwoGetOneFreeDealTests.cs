@@ -22,9 +22,7 @@ namespace GroceryStore.Tests
         }
 
         [Test]
-        public void
-            BuyTwoGetOneFreeDealWithOddQuantityOfMoreThanTwoReturnsNextValueUnderQuantityDivisibleByThreeMinusOneDividedByTwoTimesPrice
-            ()
+        public void BuyTwoGetOneFreeDealWithOddQuantityOfMoreThanTwoReturnsNextValueUnderQuantityDivisibleByThreeMinusOneDividedByTwoTimesPrice()
         {
             // Applying a buy 2 get 1 free deal when quantity is > 3 and quantity is not divisible by three returns ((quantity – 1) / 3) * price
             var buyTwoGetOneFreeDeal = new BuyTwoGetOneFreeDeal();

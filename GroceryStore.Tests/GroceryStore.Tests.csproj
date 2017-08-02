@@ -77,7 +77,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BuySomeGetOneFreeDealTests.cs" />
+    <Compile Include="BuyTwoGetOneFreeDealTests.cs" />
     <Compile Include="DealConfiguratorTests.cs" />
     <Compile Include="DealMappingTests\An_Instance_Of_DealMapping.cs" />
     <Compile Include="ItemBuilderTests\When_Building_For_An_Invalid_Sku.cs" />
@@ -107,7 +107,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

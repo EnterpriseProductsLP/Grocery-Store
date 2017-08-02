@@ -5,7 +5,7 @@ using GroceryStore.Interfaces;
 
 namespace GroceryStore.Deals
 {
-    public class DealConfigurator : DealProvider, IConfigureDeals
+    public class DealConfigurator : DealProvider, IConfigureDeals, IProvideDeals
     {
         public IDictionary<string, DealMetadata> ConfiguredDeals
         {
