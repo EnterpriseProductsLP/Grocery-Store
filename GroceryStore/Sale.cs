@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using GroceryStore.Discounts;
 
 namespace GroceryStore
 {
@@ -8,6 +9,11 @@ namespace GroceryStore
         public Sale()
         {
             LineItems = new List<LineItem>();
+        }
+
+        public Sale(DealConfigurator dealConfigurator)
+        {
+            throw new System.NotImplementedException();
         }
 
         public IList<LineItem> LineItems { get; }

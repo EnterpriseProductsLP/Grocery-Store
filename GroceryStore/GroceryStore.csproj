@@ -40,9 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DealProvider.cs" />
-    <Compile Include="DollarOffDeal.cs" />
-    <Compile Include="IDeal.cs" />
+    <Compile Include="Discounts\DealConfigurator.cs" />
+    <Compile Include="Discounts\DollarOffDeal.cs" />
+    <Compile Include="Discounts\IProvideDiscounts.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="ItemBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
