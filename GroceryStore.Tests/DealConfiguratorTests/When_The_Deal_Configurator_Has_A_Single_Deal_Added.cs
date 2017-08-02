@@ -24,7 +24,7 @@ namespace GroceryStore.Tests.DealConfiguratorTests
         }
     }
     
-    public class TestDeal : IProvideDiscounts
+    public class TestDeal : IDeal
     {
     }
 }

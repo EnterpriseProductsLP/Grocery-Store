@@ -2,21 +2,27 @@
 
 namespace GroceryStore.Discounts
 {
-    public class DealConfigurator
+    public interface IProvideDeals
     {
-        private readonly Dictionary<string, IProvideDiscounts> Deals;
+        void AddDeal(string sku, IDeal discountProvider);
+        IDeal GetDeal(string sku);
+    }
+
+    public class DealConfigurator : IProvideDeals
+    {
+        private readonly Dictionary<string, IDeal> Deals;
 
         public DealConfigurator()
         {
-            Deals = new Dictionary<string, IProvideDiscounts>();
+            Deals = new Dictionary<string, IDeal>();
         }
         
-        public void AddDeal(string sku, IProvideDiscounts discountProvider)
+        public void AddDeal(string sku, IDeal discountProvider)
         {
             Deals.Add(sku, discountProvider);
         }
 
-        public IProvideDiscounts GetDeal(string sku)
+        public IDeal GetDeal(string sku)
         {
             return Deals[sku];
         }

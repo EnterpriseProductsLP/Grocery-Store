@@ -87,6 +87,7 @@
     <Compile Include="ItemTests\When_Creating_An_Item_With_A_Negative_Price.cs" />
     <Compile Include="ItemTests\When_Creating_An_Item_With_The_Parameterized_Constructor.cs" />
     <Compile Include="LineItemTests\When_A_LineItem_Has_A_Quantity_Greater_Than_One.cs" />
+    <Compile Include="LineItemTests\When_A_LineItem_Has_A_Sku_With_An_Associated_Discount.cs" />
     <Compile Include="LineItemTests\When_Creating_A_LineItem_With_The_Parameterized_Constructor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SaleTests\When_Creating_A_Sale_With_A_Single_Item.cs" />

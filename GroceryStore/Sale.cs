@@ -6,14 +6,16 @@ namespace GroceryStore
 {
     public class Sale
     {
-        public Sale()
+        private readonly DealConfigurator _dealConfigurator;
+
+        private Sale()
         {
             LineItems = new List<LineItem>();
         }
 
-        public Sale(DealConfigurator dealConfigurator)
+        public Sale(DealConfigurator dealConfigurator) : this()
         {
-            throw new System.NotImplementedException();
+            _dealConfigurator = dealConfigurator;
         }
 
         public IList<LineItem> LineItems { get; }
