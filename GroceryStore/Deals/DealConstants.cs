@@ -15,5 +15,12 @@ namespace GroceryStore.Deals
 
             public const char Identifier = 'c';
         }
+
+        public static class TenPercentDiscountDeal
+        {
+            public const string Description = "Ten percent discount.";
+
+            public const char Identifier = 'b';
+        }
     }
 }

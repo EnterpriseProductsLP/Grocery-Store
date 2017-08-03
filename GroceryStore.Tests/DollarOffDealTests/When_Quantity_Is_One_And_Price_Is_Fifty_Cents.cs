@@ -1,27 +1,28 @@
-﻿using FluentAssertions;
+﻿using System;
+using FluentAssertions;
 using GroceryStore.Deals;
 using NUnit.Framework;
 
 namespace GroceryStore.Tests.DollarOffDealTests
 {
     [TestFixture]
-    public class When_Quantity_Is_One_And_Price_Is_Fifty_Cents
+    public class When_Discount_Is_Greater_Than_Price
     {
-        private decimal _discount;
+        private DollarOffDeal _dollarOffDeal;
 
         [OneTimeSetUp]
         public void OneTimeSetUp()
         {
-            const uint quantity = 1;
-            const decimal price = 0.5M;
-            var dollarOffDeal = new DollarOffDeal();
-            _discount = dollarOffDeal.GetDiscount(quantity, price);
+            _dollarOffDeal = new DollarOffDeal();
         }
 
         [Test]
-        public void Discount_Should_Be_Fity_Cents()
+        public void Invoking_Get_Discount_Throws_An_InvalidOperationException()
         {
-            _discount.Should().Be(0.5M);
+            const uint quantity = 1;
+            const decimal price = 0.5M;
+            Action tryingToGetDiscountForPriceLessThanOneDollar = () => _dollarOffDeal.GetDiscount(quantity, price);
+            tryingToGetDiscountForPriceLessThanOneDollar.ShouldThrow<InvalidOperationException>();
         }
     }
 }

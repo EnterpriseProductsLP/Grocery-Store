@@ -46,6 +46,7 @@
     <Compile Include="Deals\DealConstants.cs" />
     <Compile Include="Deals\DollarOffDeal.cs" />
     <Compile Include="Deals\FixedDiscountDeal.cs" />
+    <Compile Include="Deals\PercentageOffDeal.cs" />
     <Compile Include="Deals\TenPercentDiscountDeal.cs" />
     <Compile Include="Extensions\DealExtensions.cs" />
     <Compile Include="Deals\DealMapping.cs" />
