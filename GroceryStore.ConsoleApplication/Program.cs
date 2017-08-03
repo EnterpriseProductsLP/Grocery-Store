@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Linq;
-
-using GroceryStore.Deals;
 using GroceryStore.Domain;
-using GroceryStore.Extensions;
 
 namespace GroceryStore.ConsoleApplication
 {
@@ -100,21 +97,23 @@ namespace GroceryStore.ConsoleApplication
                 return;
             }
 
-            Console.WriteLine($"{"SKU",-8}{"Product",-16}{"Qty",-4}{"Subtotal",-8}");
-            Console.WriteLine("------- --------------- --- --------");
+            Console.WriteLine($"{"SKU",-8}{"Product",-16}{"Qty",-4}{"Raw Total",-10}{"Discount",-9}{"Subtotal",-8}");
+            Console.WriteLine("------- --------------- --- --------- -------- --------");
             foreach (var lineItem in _sale.LineItems)
             {
                 var itemSku = $"{lineItem.Sku,-8}";
                 var itemName = $"{lineItem.Name,-16}";
                 var itemQuantity = $"{lineItem.Quantity,-4}";
-                var itemSubtotal = $"{lineItem.RawTotal.ToString("C"),-8}";
-                Console.WriteLine(itemSku + itemName + itemQuantity + itemSubtotal);
+                var itemRawTotal = $"{lineItem.RawTotal,-10:C}";
+                var itemDiscount = $"{lineItem.Discount,-9:C}";
+                var itemSubtotal = $"{lineItem.Subtotal,-8:C}";
+                Console.WriteLine(itemSku + itemName + itemQuantity + itemRawTotal + itemDiscount + itemSubtotal);
             }
 
             Console.WriteLine();
             Console.WriteLine($"{"Sale Total",36}");
             Console.WriteLine($"{"----------",36}");
-            Console.WriteLine($"{_sale.Total.ToString("C"),36}");
+            Console.WriteLine($"{_sale.Total,36:C}");
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine();
