@@ -5,7 +5,7 @@ using NUnit.Framework;
 namespace GroceryStore.Tests.LineItemTests
 {
     [TestFixture]
-    public class When_Creating_A_LineItem_With_The_Parameterized_Constructor
+    public class When_A_LineItem_Is_Instantiated_With_The_Parameterized_Constructor
     {
         private Item _item;
 
@@ -34,18 +34,6 @@ namespace GroceryStore.Tests.LineItemTests
         public void Sku_Should_Be_The_Item_Sku()
         {
             _lineItem.Sku.Should().Be(_item.Sku);
-        }
-
-        [Test]
-        public void Quantity_Should_Be_The_Item_Quantity()
-        {
-            _lineItem.Quantity.Should().Be(1);
-        }
-
-        [Test]
-        public void Raw_Total_Should_Be_The_Item_Raw_Total()
-        {
-            _lineItem.RawTotal.Should().Be(1M);
         }
     }
 }

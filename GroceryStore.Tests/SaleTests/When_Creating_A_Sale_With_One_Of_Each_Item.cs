@@ -1,6 +1,4 @@
-﻿using System.Linq;
-
-using FluentAssertions;
+﻿using FluentAssertions;
 using GroceryStore.Domain;
 using NUnit.Framework;
 
@@ -9,12 +7,6 @@ namespace GroceryStore.Tests.SaleTests
     [TestFixture]
     public class When_Creating_A_Sale_With_One_Of_Each_Item
     {
-        private LineItem _bananas;
-
-        private LineItem _peptoBismol;
-
-        private LineItem _rubberBands;
-
         private Sale _sale;
 
         [OneTimeSetUp]
@@ -24,28 +16,6 @@ namespace GroceryStore.Tests.SaleTests
             _sale.AddItem("1245");
             _sale.AddItem("99999");
             _sale.AddItem("839");
-
-            _bananas = _sale.LineItems.Single(lineItem => lineItem.Sku == "1245");
-            _peptoBismol = _sale.LineItems.Single(lineItem => lineItem.Sku == "99999");
-            _rubberBands = _sale.LineItems.Single(lineItem => lineItem.Sku == "839");
-        }
-
-        [Test]
-        public void Raw_Total_For_Bananas_Should_Be_Correct()
-        {
-            _bananas.RawTotal.Should().Be(1.25M);
-        }
-
-        [Test]
-        public void Raw_Total_For_Pepto_Bismol_Should_Be_Correct()
-        {
-            _peptoBismol.RawTotal.Should().Be(4.88M);
-        }
-
-        [Test]
-        public void Raw_Total_For_Rubber_Bands_Should_Be_Correct()
-        {
-            _rubberBands.RawTotal.Should().Be(10M);
         }
 
         [Test]
