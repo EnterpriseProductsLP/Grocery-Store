@@ -14,7 +14,7 @@ namespace GroceryStore.Tests.SaleTests
         [OneTimeSetUp]
         public void OneTimeSetUp()
         {
-            _sale = new Sale();
+            _sale = new Sale(new ItemBuilder());
             _sale.AddItem("1245");
             _sale.AddItem("99999");
             _sale.AddItem("839");

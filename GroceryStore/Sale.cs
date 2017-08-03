@@ -5,8 +5,11 @@ namespace GroceryStore
 {
     public class Sale
     {
-        public Sale()
+        private readonly IBuildItems _itemBuilder;
+
+        public Sale(IBuildItems itemBuilder)
         {
+            _itemBuilder = itemBuilder;
             LineItems = new List<LineItem>();
         }
 
@@ -24,7 +27,7 @@ namespace GroceryStore
             }
             else
             {
-                var item = ItemBuilder.BuildItem(sku);
+                var item = _itemBuilder.BuildItem(sku);
                 var lineItem = new LineItem(item);
                 LineItems.Add(lineItem);
             }
