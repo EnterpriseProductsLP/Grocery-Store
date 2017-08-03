@@ -16,6 +16,7 @@ namespace GroceryStore.Deals
             _supportedDeals = new List<IDeal>
             {
                 new DollarOffDeal(),
+                new TenPercentDiscountDeal(),
                 new BuyTwoGetOneFreeDeal()
             };
 

@@ -1,4 +1,5 @@
-﻿using GroceryStore.Interfaces;
+﻿using System;
+using GroceryStore.Interfaces;
 
 namespace GroceryStore.Deals
 {
@@ -15,7 +16,7 @@ namespace GroceryStore.Deals
         {
             if (price < _fixedDiscount)
             {
-                return quantity * price;
+                throw new InvalidOperationException("We're not in the business of giving away merchandise.");
             }
 
             return quantity * _fixedDiscount;
