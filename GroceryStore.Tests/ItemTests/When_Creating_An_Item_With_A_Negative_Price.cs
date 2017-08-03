@@ -22,11 +22,11 @@ namespace GroceryStore.Tests.ItemTests
         [Test]
         public void An_Argument_Exception_Should_Be_Thrown()
         {
-            var exceptionAssertions = _action.ShouldThrow<ArgumentException>();
-            var argumentException = exceptionAssertions.And;
-            argumentException.ParamName.Should().Be("price");
-            argumentException.Message.Should()
-                .Be($"An item cannot have a negative price.\r\nParameter name: {argumentException.ParamName}");
+            const string paranName = "price";
+
+            _action.ShouldThrow<ArgumentException>()
+                .WithMessage($"An item cannot have a negative price.\r\nParameter name: {paranName}")
+                .And.ParamName.Should().Be(paranName);
 
             _item.Should().BeNull();
         }
