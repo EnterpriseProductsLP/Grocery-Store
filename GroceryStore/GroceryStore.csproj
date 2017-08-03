@@ -44,6 +44,8 @@
     <Compile Include="Deals\BuyTwoGetOneFreeDeal.cs" />
     <Compile Include="Deals\DealConfigurator.cs" />
     <Compile Include="Deals\DealConstants.cs" />
+    <Compile Include="Deals\DollarOffDeal.cs" />
+    <Compile Include="Deals\FixedDiscountDeal.cs" />
     <Compile Include="Extensions\DealExtensions.cs" />
     <Compile Include="Deals\DealMapping.cs" />
     <Compile Include="Deals\DealMetaData.cs" />

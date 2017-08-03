@@ -9,17 +9,7 @@ namespace GroceryStore.Tests
     [TestFixture]
     public class BuyTwoGetOneFreeDealTests
     {
-        [SetUp]
-        public void SetUp()
-        {
-        }
-
         private readonly decimal[] _prices = {1.25M, 10M, 4.88M};
-
-        [OneTimeSetUp]
-        public void OneTimeSetUp()
-        {
-        }
 
         [Test]
         public void BuyTwoGetOneFreeDealWithOddQuantityOfMoreThanTwoReturnsNextValueUnderQuantityDivisibleByThreeMinusOneDividedByTwoTimesPrice()

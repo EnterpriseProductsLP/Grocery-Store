@@ -17,6 +17,13 @@ namespace GroceryStore.Tests.DealMappingTests
         }
 
         [Test]
+        public void Should_Return_An_Instance_Of_DollarOffDeal_When_Get_Deal_Is_Invoked_With_An_Input_Of_A()
+        {
+            var expectedDeal = _dealMapping.GetDeal(DealConstants.DollarOffDeal.Identifier);
+            expectedDeal.Should().BeOfType<DollarOffDeal>();
+        }
+
+        [Test]
         public void Should_Return_An_Instance_Of_BuyTwoGetOneFreeDeal_When_GetDeal_Is_Invoked_With_An_Input_Of_C()
         {
             var expectedDeal = _dealMapping.GetDeal(DealConstants.BuyTwoGetOneFreeDeal.Identifier);
