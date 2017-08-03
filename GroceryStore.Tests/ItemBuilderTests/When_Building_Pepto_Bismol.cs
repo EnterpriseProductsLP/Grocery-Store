@@ -8,11 +8,14 @@ namespace GroceryStore.Tests.ItemBuilderTests
     public class When_Building_Pepto_Bismol
     {
         private Item _item;
+        
+        private ItemBuilder _itemBuilder;
 
         [OneTimeSetUp]
         public void OneTimeSetUp()
         {
-            _item = ItemBuilder.BuildItem("99999");
+            _itemBuilder = new ItemBuilder();
+            _item = _itemBuilder.BuildItem("99999");
         }
 
         [Test]

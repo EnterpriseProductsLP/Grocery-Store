@@ -7,14 +7,19 @@ namespace GroceryStore.Domain
 {
     public class Sale
     {
+<<<<<<< HEAD:GroceryStore/Domain/Sale.cs
         private readonly IProvideDeals _dealProvider;
 
-        private readonly IBuildItems _itemBuilder;
-
-        public Sale(IProvideDeals dealProvider, IBuildItems itemBuilder)
+        public Sale(IProvideDeals dealProvider = null)
         {
             _dealProvider = dealProvider ?? new DoNothingDealProvider();
+=======
+        private readonly IBuildItems _itemBuilder;
+
+        public Sale(IBuildItems itemBuilder)
+        {
             _itemBuilder = itemBuilder;
+>>>>>>> refactor-action-tests:GroceryStore/Sale.cs
             LineItems = new List<LineItem>();
         }
 
@@ -32,8 +37,13 @@ namespace GroceryStore.Domain
             }
             else
             {
-                var item = _itemBuilder.BuildItem(sku);
+<<<<<<< HEAD:GroceryStore/Domain/Sale.cs
+                var item = ItemBuilder.BuildItem(sku);
                 var lineItem = new LineItem(item, _dealProvider);
+=======
+                var item = _itemBuilder.BuildItem(sku);
+                var lineItem = new LineItem(item);
+>>>>>>> refactor-action-tests:GroceryStore/Sale.cs
                 LineItems.Add(lineItem);
             }
         }

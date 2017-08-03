@@ -28,7 +28,9 @@ namespace GroceryStore.Tests.LineItemTests
             _substitueDealProvider = Substitute.For<IProvideDeals>();
             _substitueDealProvider.GetDeal(Arg.Any<string>()).Returns(_substituteDeal);
 
-            _lineItem = new LineItem(ItemBuilder.BuildItem(Sku), _substitueDealProvider);
+            var itemBuilder = new ItemBuilder();
+            var item = itemBuilder.BuildItem(Sku);
+            _lineItem = new LineItem(item, _substitueDealProvider);
         }
 
         [Test]

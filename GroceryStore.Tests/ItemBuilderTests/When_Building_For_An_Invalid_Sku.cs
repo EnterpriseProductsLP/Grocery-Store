@@ -9,18 +9,19 @@ namespace GroceryStore.Tests.ItemBuilderTests
     [TestFixture]
     public class When_Building_For_An_Invalid_Sku
     {
-        private Action _action;
+        private ItemBuilder _itemBuilder;
 
         [OneTimeSetUp]
         public void OneTimeSetUp()
         {
-            _action = () => ItemBuilder.BuildItem("I_AM_NOT_A_VALID_SKU");
+            _itemBuilder = new ItemBuilder();
         }
 
         [Test]
         public void Build_Item_Should_Throw_An_ArgumentException()
         {
-            _action.ShouldThrow<ArgumentException>()
+            _itemBuilder.Invoking(ib => ib.BuildItem("I_AM_NOT_A_VALID_SKU"))
+                .ShouldThrow<ArgumentException>()
                 .WithMessage($"The given SKU: I_AM_NOT_A_VALID_SKU is invalid.");
         }
     }

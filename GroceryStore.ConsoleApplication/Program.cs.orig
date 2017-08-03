@@ -11,7 +11,11 @@ namespace GroceryStore.ConsoleApplication
 
         private static bool _running = true;
 
-        private static Sale _sale = new Sale(DealConfiguratorSingleton.Instance, new ItemBuilder());
+<<<<<<< HEAD
+        private static Sale _sale = new Sale(DealConfiguratorSingleton.Instance);
+=======
+        private static Sale _sale = new Sale(new ItemBuilder());
+>>>>>>> refactor-action-tests
 
         public static void Main()
         {
@@ -27,7 +31,11 @@ namespace GroceryStore.ConsoleApplication
             if (string.IsNullOrWhiteSpace(sku))
             {
                 _lastSkuWasValid = false;
-                _sale = new Sale(DealConfiguratorSingleton.Instance, new ItemBuilder());
+<<<<<<< HEAD
+                _sale = new Sale(DealConfiguratorSingleton.Instance);
+=======
+                _sale = new Sale(new ItemBuilder());
+>>>>>>> refactor-action-tests
                 return;
             }
 

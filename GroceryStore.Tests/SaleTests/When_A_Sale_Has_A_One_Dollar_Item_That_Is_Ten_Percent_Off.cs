@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using FluentAssertions;
 using GroceryStore.Deals;
 using GroceryStore.Domain;
@@ -21,7 +22,7 @@ namespace GroceryStore.Tests.SaleTests
             _dealConfigurator.AddDeal("1245", new TenPercentDiscountDeal());
 
             // 2. A sale
-            _sale = new Sale(_dealConfigurator);
+            _sale = new Sale(_dealConfigurator, new ItemBuilder());
             // ------------------------------------------------------------------------
             
             // Act --------------------------------------------------------------------
@@ -32,7 +33,8 @@ namespace GroceryStore.Tests.SaleTests
         [Test]
         public void The_Sale_Total_Should_Be_90_Percent_Of_The_Item_Price()
         {
-            var bananas = ItemBuilder.BuildItem("1245");
+            var itemBuilder = new ItemBuilder();
+            var bananas = itemBuilder.BuildItem("1245");
             var priceOfBananas = bananas.Price;
             var expectedSaleTotal = Math.Round(priceOfBananas * 0.9M, 2);
             _sale.Total.Should().Be(expectedSaleTotal);

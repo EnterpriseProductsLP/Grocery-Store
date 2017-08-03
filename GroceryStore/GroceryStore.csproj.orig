@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="Deals\BuySomeGetOneFreeDeal.cs" />
     <Compile Include="Deals\BuyTwoGetOneFreeDeal.cs" />
     <Compile Include="Deals\DealConfigurator.cs" />
@@ -54,13 +55,17 @@
     <Compile Include="Deals\DealProvider.cs" />
     <Compile Include="Deals\DoNothingDeal.cs" />
     <Compile Include="Deals\DoNothingDealProvider.cs" />
-    <Compile Include="IBuildItems.cs" />
     <Compile Include="Interfaces\IDeal.cs" />
     <Compile Include="Interfaces\IConfigureDeals.cs" />
     <Compile Include="Interfaces\IMapCharactersToDeals.cs" />
     <Compile Include="Interfaces\IProvideDeals.cs" />
     <Compile Include="Domain\Item.cs" />
     <Compile Include="Domain\ItemBuilder.cs" />
+=======
+    <Compile Include="IBuildItems.cs" />
+    <Compile Include="Item.cs" />
+    <Compile Include="ItemBuilder.cs" />
+>>>>>>> refactor-action-tests
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Domain\LineItem.cs" />
     <Compile Include="Domain\Sale.cs" />

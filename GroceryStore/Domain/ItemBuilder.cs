@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace GroceryStore.Domain
 {
-    public static class ItemBuilder
+    public class ItemBuilder : IBuildItems
     {
-        public static Item BuildItem(string sku)
+        public Item BuildItem(string sku)
         {
             switch (sku)
             {
