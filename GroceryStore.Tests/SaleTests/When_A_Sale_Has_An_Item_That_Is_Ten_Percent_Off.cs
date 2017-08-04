@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data;
 using FluentAssertions;
 using GroceryStore.Deals;
 using GroceryStore.Domain;
@@ -16,17 +15,9 @@ namespace GroceryStore.Tests.SaleTests
         [OneTimeSetUp]
         public void OneTimeSetUp()
         {
-            // Arrange ----------------------------------------------------------------
-            // 1. Item configured with a 10% discount.
             _dealConfigurator = new DealConfigurator();
             _dealConfigurator.AddDeal("1245", new TenPercentDiscountDeal());
-
-            // 2. A sale
             _sale = new Sale(_dealConfigurator, new ItemBuilder());
-            // ------------------------------------------------------------------------
-            
-            // Act --------------------------------------------------------------------
-            // 1. Add an item with the ten percent discount to the sale.
             _sale.AddItem("1245");
         }
 
