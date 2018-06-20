@@ -22,7 +22,7 @@ namespace GroceryStore.Tests.DollarOffDealTests
             const uint quantity = 1;
             const decimal price = 0.5M;
             Action tryingToGetDiscountForPriceLessThanOneDollar = () => _dollarOffDeal.GetDiscount(quantity, price);
-            tryingToGetDiscountForPriceLessThanOneDollar.ShouldThrow<InvalidOperationException>();
+            tryingToGetDiscountForPriceLessThanOneDollar.Should().Throw<InvalidOperationException>();
         }
     }
 }

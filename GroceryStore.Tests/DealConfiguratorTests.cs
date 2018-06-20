@@ -26,7 +26,7 @@ namespace GroceryStore.Tests
         {
             _dealConfigurator.AddDeal(Sku, new BuyTwoGetOneFreeDeal());
             Action action = () => _dealConfigurator.AddDeal(Sku, new BuyTwoGetOneFreeDeal());
-            action.ShouldNotThrow();
+            action.Should().NotThrow();
         }
 
         [Test]
@@ -68,7 +68,7 @@ namespace GroceryStore.Tests
         public void RemoveDealDoesNotThrowIfThereIsNoDealForTheGivenSku()
         {
             Action action = () => _dealConfigurator.RemoveDeal(Sku);
-            action.ShouldNotThrow();
+            action.Should().NotThrow();
         }
 
         [Test]

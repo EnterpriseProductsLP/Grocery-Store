@@ -22,7 +22,7 @@ namespace GroceryStore.Tests.ItemTests
         [Test]
         public void An_Argument_Exception_Should_Be_Thrown()
         {
-            var exceptionAssertions = _action.ShouldThrow<ArgumentException>();
+            var exceptionAssertions = _action.Should().Throw<ArgumentException>();
             var argumentException = exceptionAssertions.And;
             argumentException.ParamName.Should().Be("price");
             argumentException.Message.Should()
