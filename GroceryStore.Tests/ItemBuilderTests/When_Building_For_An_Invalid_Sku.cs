@@ -21,7 +21,7 @@ namespace GroceryStore.Tests.ItemBuilderTests
         public void Build_Item_Should_Throw_An_ArgumentException()
         {
             _itemBuilder.Invoking(ib => ib.BuildItem("I_AM_NOT_A_VALID_SKU"))
-                .ShouldThrow<ArgumentException>()
+                .Should().Throw<ArgumentException>()
                 .WithMessage($"The given SKU: I_AM_NOT_A_VALID_SKU is invalid.");
         }
     }
