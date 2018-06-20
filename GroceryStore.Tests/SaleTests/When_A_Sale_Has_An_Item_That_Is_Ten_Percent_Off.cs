@@ -2,6 +2,7 @@
 using FluentAssertions;
 using GroceryStore.Deals;
 using GroceryStore.Domain;
+using GroceryStore.Interfaces;
 using NUnit.Framework;
 
 namespace GroceryStore.Tests.SaleTests
@@ -9,7 +10,7 @@ namespace GroceryStore.Tests.SaleTests
     [TestFixture]
     public class When_A_Sale_Has_An_Item_That_Is_Ten_Percent_Off
     {
-        private DealConfigurator _dealConfigurator;
+        private IConfigureDeals _dealConfigurator;
         private Sale _sale;
 
         [OneTimeSetUp]

@@ -1,6 +1,7 @@
 ﻿using FluentAssertions;
 using GroceryStore.Deals;
 using GroceryStore.Domain;
+using GroceryStore.Interfaces;
 using NUnit.Framework;
 
 namespace GroceryStore.Tests.SaleTests
@@ -8,7 +9,7 @@ namespace GroceryStore.Tests.SaleTests
     [TestFixture]
     public class When_Creating_A_Sale_With_Three_Of_An_Item_That_Has_A_Buy_Two_Get_One_Free_Deal
     {
-        private DealConfigurator _dealConfigurator;
+        private IConfigureDeals _dealConfigurator;
 
         private Sale _sale;
 

@@ -15,7 +15,7 @@ namespace GroceryStore.Deals
         {
             // Warning disabled.  Loss of fraction is the intended behavior.
             // ReSharper disable once PossibleLossOfFraction
-            return quantity/(_countRequiredToGetFreeOne + 1)*price;
+            return quantity / (_countRequiredToGetFreeOne + 1) * price;
         }
     }
 }

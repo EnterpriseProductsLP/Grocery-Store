@@ -5,7 +5,7 @@ using GroceryStore.Interfaces;
 
 namespace GroceryStore.Deals
 {
-    public class DealConfigurator : DealProvider, IConfigureDeals, IProvideDeals
+    public class DealConfigurator : DealProvider, IConfigureDeals
     {
         public IDictionary<string, DealMetadata> ConfiguredDeals
         {
@@ -28,11 +28,6 @@ namespace GroceryStore.Deals
             RemoveDealIfOneExists(sku);
 
             Deals.Add(sku, dealProvider);
-        }
-
-        public void ClearDeals()
-        {
-            Deals.Clear();
         }
 
         public void RemoveDeal(string sku)
