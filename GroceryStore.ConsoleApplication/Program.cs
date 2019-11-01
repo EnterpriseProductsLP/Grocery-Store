@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using GroceryStore.Domain;
+using GroceryStore.Inventory;
 
 namespace GroceryStore.ConsoleApplication
 {

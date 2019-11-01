@@ -1,7 +1,6 @@
 ﻿using System;
 
 using FluentAssertions;
-using GroceryStore.Domain;
 using NUnit.Framework;
 
 namespace GroceryStore.Tests.ItemTests

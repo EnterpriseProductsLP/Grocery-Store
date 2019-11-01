@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using GroceryStore.Interfaces;
 
 namespace GroceryStore.Deals
 {

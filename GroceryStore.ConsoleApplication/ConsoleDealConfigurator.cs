@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using GroceryStore.Deals;
-using GroceryStore.Domain;
-using GroceryStore.Extensions;
+using GroceryStore.Inventory;
 
 namespace GroceryStore.ConsoleApplication
 {

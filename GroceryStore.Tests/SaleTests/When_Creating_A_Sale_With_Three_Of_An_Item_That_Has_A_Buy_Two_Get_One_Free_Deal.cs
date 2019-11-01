@@ -1,7 +1,6 @@
 ﻿using FluentAssertions;
 using GroceryStore.Deals;
-using GroceryStore.Domain;
-using GroceryStore.Interfaces;
+using GroceryStore.Inventory;
 using NUnit.Framework;
 
 namespace GroceryStore.Tests.SaleTests

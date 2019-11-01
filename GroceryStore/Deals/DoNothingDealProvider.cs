@@ -1,5 +1,3 @@
-using GroceryStore.Interfaces;
-
 namespace GroceryStore.Deals
 {
     public class DoNothingDealProvider : IProvideDeals

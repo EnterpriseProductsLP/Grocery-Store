@@ -48,25 +48,22 @@
     <Compile Include="Deals\FixedDiscountDeal.cs" />
     <Compile Include="Deals\PercentageOffDeal.cs" />
     <Compile Include="Deals\TenPercentDiscountDeal.cs" />
-    <Compile Include="Extensions\DealExtensions.cs" />
+    <Compile Include="Deals\DealExtensions.cs" />
     <Compile Include="Deals\DealMapping.cs" />
     <Compile Include="Deals\DealMetaData.cs" />
     <Compile Include="Deals\DealProvider.cs" />
     <Compile Include="Deals\DoNothingDeal.cs" />
     <Compile Include="Deals\DoNothingDealProvider.cs" />
-    <Compile Include="IBuildItems.cs" />
-    <Compile Include="Interfaces\IDeal.cs" />
-    <Compile Include="Interfaces\IConfigureDeals.cs" />
-    <Compile Include="Interfaces\IMapCharactersToDeals.cs" />
-    <Compile Include="Interfaces\IProvideDeals.cs" />
-    <Compile Include="Domain\Item.cs" />
-    <Compile Include="Domain\ItemBuilder.cs" />
+    <Compile Include="Inventory\IBuildItems.cs" />
+    <Compile Include="Deals\IDeal.cs" />
+    <Compile Include="Deals\IConfigureDeals.cs" />
+    <Compile Include="Deals\IMapCharactersToDeals.cs" />
+    <Compile Include="Deals\IProvideDeals.cs" />
+    <Compile Include="Item.cs" />
+    <Compile Include="Inventory\ItemBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Domain\LineItem.cs" />
-    <Compile Include="Domain\Sale.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="GroceryStore.cd" />
+    <Compile Include="LineItem.cs" />
+    <Compile Include="Sale.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

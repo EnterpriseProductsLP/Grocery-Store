@@ -1,6 +1,4 @@
-﻿using GroceryStore.Interfaces;
-
-namespace GroceryStore.Deals
+﻿namespace GroceryStore.Deals
 {
     public abstract class BuySomeGetOneFreeDeal : IDeal
     {

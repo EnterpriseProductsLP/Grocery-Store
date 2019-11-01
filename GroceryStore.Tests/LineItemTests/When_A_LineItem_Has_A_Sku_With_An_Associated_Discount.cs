@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
-using GroceryStore.Domain;
-using GroceryStore.Interfaces;
+using GroceryStore.Deals;
+using GroceryStore.Inventory;
 using NSubstitute;
 
 using NUnit.Framework;

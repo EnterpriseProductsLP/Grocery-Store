@@ -1,8 +1,5 @@
 ﻿using System.Collections.Generic;
 
-using GroceryStore.Extensions;
-using GroceryStore.Interfaces;
-
 namespace GroceryStore.Deals
 {
     public class DealConfigurator : DealProvider, IConfigureDeals
